@@ -151,3 +151,13 @@
 (def-package! insert-translated-name)
 (setq insert-translated-name-translate-engine "youdao")
 (map! :ne "SPC t t" 'insert-translated-name-replace-with-camel)
+
+;; (setq counsel-fzf-dir-function 'vc-root-dir)
+(setq counsel-fzf-dir-function
+(lambda ()
+  (let ((d (locate-dominating-file default-directory ".git")))
+    (if (or (null d)
+      (equal (expand-file-name d)
+        (expand-file-name "~/")))
+  default-directory
+d))))
