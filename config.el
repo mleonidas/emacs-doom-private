@@ -19,7 +19,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 14))
+(setq doom-font (font-spec :family "monospace" :size 17))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -53,6 +53,9 @@
 ;; they are implemented.
 ;;
 (load-theme 'doom-gruvbox t)
+;; (def-package! company-box
+;;   :after company
+;;   :hook (company-mode . company-box-mode))
 
 (def-package! lsp-java
   :config
@@ -71,12 +74,12 @@
 ;;  (dap-mode t)
 ;;  (dap-ui-mode t))
 (map! :ne "SPC j" 'evil-avy-goto-char)
+(map! :ne "SPC z" 'counsel-fzf)
+(map! :ne "; w" 'save-buffer)
 (map! :ne "M-1" 'neotree-find)
 (map! :ne "SPC v" 'vterm)
 
 (def-package! evil-fcitx)
-(def-package! db)
-
 (def-package! ejc-sql)
 (add-hook 'ejc-sql-minor-mode-hook
           (lambda ()
@@ -88,3 +91,5 @@
             (ejc-set-column-width-limit nil)
             ))
 (setq ejc-result-table-impl 'ejc-result-mode)
+(def-package! db)
+
