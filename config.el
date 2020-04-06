@@ -73,3 +73,18 @@
 (map! :ne "SPC j" 'evil-avy-goto-char)
 (map! :ne "M-1" 'neotree-find)
 (map! :ne "SPC v" 'vterm)
+
+(def-package! evil-fcitx)
+(def-package! db)
+
+(def-package! ejc-sql)
+(add-hook 'ejc-sql-minor-mode-hook
+          (lambda ()
+            (auto-complete-mode nil)))
+(add-hook 'ejc-sql-connected-hook
+          (lambda ()
+            (ejc-set-fetch-size 50)
+            (ejc-set-max-rows nil)
+            (ejc-set-column-width-limit nil)
+            ))
+(setq ejc-result-table-impl 'ejc-result-mode)
