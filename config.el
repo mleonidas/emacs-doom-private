@@ -27,22 +27,22 @@
   ;; english font
   (if (display-graphic-p)
       (progn
-        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 11)) ;; 11 13 17 19 23
+        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 17)) ;; 11 13 17 19 23
         ;; chinese font
         (dolist (charset '(kana han symbol cjk-misc bopomofo))
-          (set-fontset-font (frame-parameter nil 'font)
+          (Set-fontset-font (frame-parameter nil 'font)
                             charset
-                            (font-spec :family "Sarasa Mono SC")))) ;; 14 16 20 22 28
+                            (font-spec :family "Sarasa Mono SC" 16)))) ;; 14 16 20 22 28
     ))
 
-;; (defun +my|init-font(frame)
-;;   (with-selected-frame frame
-;;     (if (display-graphic-p)
-;;         (+my/better-font))))
+(defun +my|init-font(frame)
+  (with-selected-frame frame
+    (if (display-graphic-p)
+        (+my/better-font))))
 
-;; (if (and (fboundp 'daemonp) (daemonp))
-;;     (add-hook 'after-make-frame-functions #'+my|init-font)
-;;   (+my/better-font))
+(if (and (fboundp 'daemonp) (daemonp))
+    (add-hook 'after-make-frame-functions #'+my|init-font)
+  (+my/better-font))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -135,6 +135,7 @@
  '(lsp-face-semhl-variable-local ((t (:foreground "#6272a4"))))
  '(powerline-active0 ((t (:foreground "#f8f8f2"))))
  '(powerline-active1 ((t (:foreground "#FFDEAD"))))
+ '(doom-modeline-evil-insert-state ((t (:foreground "#B22222" :background "#FFB90F"))))
  '(show-paren-match ((t (:background "#6272a4" :foreground "#00000")))))
 
 (setq evil-emacs-state-tag "EMACS")
