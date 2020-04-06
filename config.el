@@ -19,7 +19,30 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 17))
+;; (setq doom-font (font-spec :family "monospace" :size 17))
+;; (setq doom-font (font-spec :family "Source Code Variable" :size 15))
+
+(defun +my/better-font()
+  (interactive)
+  ;; english font
+  (if (display-graphic-p)
+      (progn
+        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 15)) ;; 11 13 17 19 23
+        ;; chinese font
+        (dolist (charset '(kana han symbol cjk-misc bopomofo))
+          (set-fontset-font (frame-parameter nil 'font)
+                            charset
+                            (font-spec :family "Sarasa Mono SC")))) ;; 14 16 20 22 28
+    ))
+
+;; (defun +my|init-font(frame)
+;;   (with-selected-frame frame
+;;     (if (display-graphic-p)
+;;         (+my/better-font))))
+
+;; (if (and (fboundp 'daemonp) (daemonp))
+;;     (add-hook 'after-make-frame-functions #'+my|init-font)
+;;   (+my/better-font))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
