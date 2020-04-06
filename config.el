@@ -27,7 +27,7 @@
   ;; english font
   (if (display-graphic-p)
       (progn
-        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 15)) ;; 11 13 17 19 23
+        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 11)) ;; 11 13 17 19 23
         ;; chinese font
         (dolist (charset '(kana han symbol cjk-misc bopomofo))
           (set-fontset-font (frame-parameter nil 'font)
@@ -116,3 +116,32 @@
 (setq ejc-result-table-impl 'ejc-result-mode)
 (def-package! db)
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-box-scrollbar ((t (:background "#5B5B5B" :foreground "#000000"))))
+ '(company-tooltip ((t (:background "#44475a" :foreground "#E1FFFF"))))
+ '(company-tooltip-annotation ((t (:foreground "#FFA500"))))
+ '(company-tooltip-annotation-selection ((t (:foreground "#2F4F4F"))))
+ '(company-tooltip-common ((t (:foreground "#E6E6FA"))))
+ '(company-tooltip-common-selection ((t (:foreground "#800000"))))
+ '(company-tooltip-selection ((t (:background "#FFE66F" :foreground "#000000"))))
+ '(linum ((t (:inherit (shadow default) :foreground "DimGray" :background "dark"))))
+ '(linum-highlight-face ((t (:background "#282828" :foreground "#EEEE00"))))
+ '(lsp-face-semhl-field ((t (:foreground "#6272a4"))))
+ '(lsp-face-semhl-variable ((t (:foreground "#6272a4"))))
+ '(lsp-face-semhl-variable-local ((t (:foreground "#6272a4"))))
+ '(powerline-active0 ((t (:foreground "#f8f8f2"))))
+ '(powerline-active1 ((t (:foreground "#FFDEAD"))))
+ '(show-paren-match ((t (:background "#6272a4" :foreground "#00000")))))
+
+(setq evil-emacs-state-tag "EMACS")
+(setq evil-hybrid-state-tag "HYBRID")
+(setq evil-insert-state-tag "INSERT")
+(setq evil-lisp-state-tag "LISP")
+(setq evil-motion-state-tag "MOTION")
+(setq evil-normal-state-tag "NORMAL")
+(setq evil-operator-state-tag "OPERATOR")
+(setq evil-visual-state-tag "VISUAL")
