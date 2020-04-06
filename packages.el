@@ -55,3 +55,4 @@
 (package! evil-fcitx)
 (package! ejc-sql)
 (package! company-box)
+(package! insert-translated-name)

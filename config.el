@@ -136,6 +136,7 @@
  '(powerline-active0 ((t (:foreground "#f8f8f2"))))
  '(powerline-active1 ((t (:foreground "#FFDEAD"))))
  '(doom-modeline-evil-insert-state ((t (:foreground "#B22222" :background "#FFB90F"))))
+ '(doom-modeline-evil-normal-state ((t (:foreground "#FFFFFF" :background "#2F4F4F"))))
  '(show-paren-match ((t (:background "#6272a4" :foreground "#00000")))))
 
 (setq evil-emacs-state-tag "EMACS")
@@ -146,3 +147,7 @@
 (setq evil-normal-state-tag "NORMAL")
 (setq evil-operator-state-tag "OPERATOR")
 (setq evil-visual-state-tag "VISUAL")
+
+(def-package! insert-translated-name)
+(setq insert-translated-name-translate-engine "youdao")
+(map! :ne "SPC t t" 'insert-translated-name-replace-with-camel)
