@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ejc
+# key: ejc
+# --
+<select name='desc'>
+$0
+</select>

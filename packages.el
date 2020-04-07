@@ -53,3 +53,6 @@
 (package! dap-mode)
 (add-to-list 'load-path "~/.emacs.d/myconfig")
 (package! evil-fcitx)
+(package! ejc-sql)
+(package! company-box)
+(package! insert-translated-name)

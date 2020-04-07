@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "van"
+      user-mail-address "--")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -19,7 +19,30 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 14))
+;; (setq doom-font (font-spec :family "monospace" :size 17))
+;; (setq doom-font (font-spec :family "Source Code Variable" :size 15))
+
+(defun +my/better-font()
+  (interactive)
+  ;; english font
+  (if (display-graphic-p)
+      (progn
+        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 17)) ;; 11 13 17 19 23
+        ;; chinese font
+        (dolist (charset '(kana han symbol cjk-misc bopomofo))
+          (Set-fontset-font (frame-parameter nil 'font)
+                            charset
+                            (font-spec :family "Sarasa Mono SC" 16)))) ;; 14 16 20 22 28
+    ))
+
+(defun +my|init-font(frame)
+  (with-selected-frame frame
+    (if (display-graphic-p)
+        (+my/better-font))))
+
+(if (and (fboundp 'daemonp) (daemonp))
+    (add-hook 'after-make-frame-functions #'+my|init-font)
+  (+my/better-font))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -53,6 +76,9 @@
 ;; they are implemented.
 ;;
 (load-theme 'doom-gruvbox t)
+;; (def-package! company-box
+;;   :after company
+;;   :hook (company-mode . company-box-mode))
 
 (def-package! lsp-java
   :config
@@ -70,8 +96,122 @@
 ;;  :config
 ;;  (dap-mode t)
 ;;  (dap-ui-mode t))
-(map! :ne "SPC j" 'evil-avy-goto-char)
+;; (map! :ne "SPC j" 'evil-avy-goto-char)
+(map! :ne "SPC j" 'evil-avy-goto-word-1)
+(map! :ne "SPC z" 'counsel-fzf)
+(map! :ne "; w" 'save-buffer)
+(map! :ne "; j" 'ace-window)
+(map! :ne "; d" 'delete-other-windows)
 (map! :ne "M-1" 'neotree-find)
 (map! :ne "SPC v" 'vterm)
 
 (defalias 'forward-evil-word 'forward-evil-symbol)
+
+(def-package! evil-fcitx)
+(def-package! ejc-sql)
+(add-hook 'ejc-sql-minor-mode-hook
+          (lambda ()
+            (auto-complete-mode nil)))
+(add-hook 'ejc-sql-connected-hook
+          (lambda ()
+            (ejc-set-fetch-size 50)
+            (ejc-set-max-rows nil)
+            (ejc-set-column-width-limit nil)
+            ))
+(setq ejc-result-table-impl 'ejc-result-mode)
+(def-package! db)
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-box-scrollbar ((t (:background "#5B5B5B" :foreground "#000000"))))
+ '(company-tooltip ((t (:background "#44475a" :foreground "#E1FFFF"))))
+ '(company-tooltip-annotation ((t (:foreground "#FFA500"))))
+ '(company-tooltip-annotation-selection ((t (:foreground "#2F4F4F"))))
+ '(company-tooltip-common ((t (:foreground "#E6E6FA"))))
+ '(company-tooltip-common-selection ((t (:foreground "#800000"))))
+ '(company-tooltip-selection ((t (:background "#FFE66F" :foreground "#000000"))))
+ '(linum ((t (:inherit (shadow default) :foreground "DimGray" :background "dark"))))
+ '(linum-highlight-face ((t (:background "#282828" :foreground "#EEEE00"))))
+ '(lsp-face-semhl-field ((t (:foreground "#6272a4"))))
+ '(lsp-face-semhl-variable ((t (:foreground "#6272a4"))))
+ '(lsp-face-semhl-variable-local ((t (:foreground "#6272a4"))))
+ '(powerline-active0 ((t (:foreground "#f8f8f2"))))
+ '(powerline-active1 ((t (:foreground "#FFDEAD"))))
+ '(doom-modeline-evil-insert-state ((t (:foreground "#B22222" :background "#FFB90F"))))
+ '(doom-modeline-evil-normal-state ((t (:foreground "#FFFFFF" :background "#2F4F4F"))))
+ '(show-paren-match ((t (:background "#6272a4" :foreground "#00000")))))
+
+(setq evil-emacs-state-tag "EMACS")
+(setq evil-hybrid-state-tag "HYBRID")
+(setq evil-insert-state-tag "INSERT")
+(setq evil-lisp-state-tag "LISP")
+(setq evil-motion-state-tag "MOTION")
+(setq evil-normal-state-tag "NORMAL")
+(setq evil-operator-state-tag "OPERATOR")
+(setq evil-visual-state-tag "VISUAL")
+
+(def-package! insert-translated-name)
+(setq insert-translated-name-translate-engine "youdao")
+(map! :ne "SPC t t" 'insert-translated-name-replace-with-camel)
+
+;; (setq counsel-fzf-dir-function 'vc-root-dir)
+(setq counsel-fzf-dir-function
+(lambda ()
+  (let ((d (locate-dominating-file default-directory ".git")))
+    (if (or (null d)
+      (equal (expand-file-name d)
+        (expand-file-name "~/")))
+  default-directory
+d))))
+
+(def-package! org-bullets-mode
+  :custom
+  (org-ellipsis "⤵ ")
+  :hook (org-mode . org-bullets-mode))
+
+(setq org-hide-emphasis-markers t
+      org-fontify-done-headline t
+      org-hide-leading-stars t
+      org-pretty-entities nil
+      )
+(setq prettify-symbols-unprettify-at-point 'right-edge)
+(add-hook 'org-mode-hook 'prettify-symbols-mode)
+;; load image in org mode
+(defun org-toggle-iimage-in-org ()
+  "display images in your org file"
+  (interactive)
+  (if (face-underline-p 'org-link)
+      (set-face-underline-p 'org-link nil)
+      (set-face-underline-p 'org-link t))
+  (iimage-mode))
+(setq org-image-actual-width nil)
+
+;; uml plantuml.jar
+(setq org-plantuml-jar-path (expand-file-name "~/soft/jdk/plantuml.jar"))
+(org-babel-do-load-languages
+  'org-babel-load-languages
+  '((emacs-lisp . nil)
+    (org . t)
+    (plantuml . t)))
+(setq org-confirm-babel-evaluate nil)
+
+
+;;number-region
+(defun number-region (start end)
+  (interactive "r")
+  (let* ((count 1)
+     (indent-region-function (lambda (start end)
+                   (save-excursion
+                     (setq end (copy-marker end))
+                     (goto-char start)
+                     (while (< (point) end)
+                       (or (and (bolp) (eolp))
+                       (insert (format "%d " count))
+                       (setq count (1+ count)))
+                       (forward-line 1))
+                     (move-marker end nil)))))
+    (indent-region start end)))
+(setq gc-cons-threshold (* 2 1000 1000))
