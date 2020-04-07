@@ -186,16 +186,13 @@ d))))
 
 ;; uml plantuml.jar
 (setq org-plantuml-jar-path (expand-file-name "~/soft/jdk/plantuml.jar"))
-(org-babel-do-load-languages 'org-babel-do-load-languages '((plantuml . t)))
 (org-babel-do-load-languages
   'org-babel-load-languages
   '((emacs-lisp . nil)
+    (org . t)
     (plantuml . t)))
-(after-load 'org
- (org-babel-do-load-languages
-  'org-babel-load-languages
-  '((plantuml . t)
-    (sql . t))))
+(setq org-confirm-babel-evaluate nil)
+
 
 ;;number-region
 (defun number-region (start end)
