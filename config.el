@@ -96,7 +96,8 @@
 ;;  :config
 ;;  (dap-mode t)
 ;;  (dap-ui-mode t))
-(map! :ne "SPC j" 'evil-avy-goto-char)
+;; (map! :ne "SPC j" 'evil-avy-goto-char)
+(map! :ne "SPC j" 'evil-avy-goto-word-1)
 (map! :ne "SPC z" 'counsel-fzf)
 (map! :ne "; w" 'save-buffer)
 (map! :ne "M-1" 'neotree-find)
