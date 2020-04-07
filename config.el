@@ -161,3 +161,25 @@
         (expand-file-name "~/")))
   default-directory
 d))))
+
+(def-package! org-bullets-mode
+  :custom
+  (org-ellipsis "⤵ ")
+  :hook (org-mode . org-bullets-mode))
+
+(setq org-hide-emphasis-markers t
+      org-fontify-done-headline t
+      org-hide-leading-stars t
+      org-pretty-entities nil
+      )
+(setq prettify-symbols-unprettify-at-point 'right-edge)
+(add-hook 'org-mode-hook 'prettify-symbols-mode)
+;; load image in org mode
+(defun org-toggle-iimage-in-org ()
+  "display images in your org file"
+  (interactive)
+  (if (face-underline-p 'org-link)
+      (set-face-underline-p 'org-link nil)
+      (set-face-underline-p 'org-link t))
+  (iimage-mode))
+(setq org-image-actual-width nil)
