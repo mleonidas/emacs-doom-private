@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "van"
+      user-mail-address "--")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -183,3 +183,33 @@ d))))
       (set-face-underline-p 'org-link t))
   (iimage-mode))
 (setq org-image-actual-width nil)
+
+;; uml plantuml.jar
+(setq org-plantuml-jar-path (expand-file-name "~/soft/jdk/plantuml.jar"))
+(org-babel-do-load-languages 'org-babel-do-load-languages '((plantuml . t)))
+(org-babel-do-load-languages
+  'org-babel-load-languages
+  '((emacs-lisp . nil)
+    (plantuml . t)))
+(after-load 'org
+ (org-babel-do-load-languages
+  'org-babel-load-languages
+  '((plantuml . t)
+    (sql . t))))
+
+;;number-region
+(defun number-region (start end)
+  (interactive "r")
+  (let* ((count 1)
+     (indent-region-function (lambda (start end)
+                   (save-excursion
+                     (setq end (copy-marker end))
+                     (goto-char start)
+                     (while (< (point) end)
+                       (or (and (bolp) (eolp))
+                       (insert (format "%d " count))
+                       (setq count (1+ count)))
+                       (forward-line 1))
+                     (move-marker end nil)))))
+    (indent-region start end)))
+(setq gc-cons-threshold (* 2 1000 1000))
