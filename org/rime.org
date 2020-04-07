@@ -1,7 +1,7 @@
 rime 安装
 1. https://github.com/rime/plum
-2. rime-install double-pinyin
-3. default.custom.yaml
+2. $RIME-INSTALL-HOME/rime-install double-pinyin
+3. ~/.config/ibus/rime/default.custom.yaml
 patch:
   schema_list:
     - schema: luna_pinyin          # 朙月拼音
@@ -25,10 +25,11 @@ patch:
     - schema: zyenpheng            # 中古漢語全拼
     - schema: ipa_xsampa           # X-SAMPA 國際音標
     - schema: emoji                # emoji 表情
-4. double_pinyin_flypy.schema.yaml简体拼音
+4. ~/.config/ibus/rime/double_pinyin_flypy.schema.yaml简体拼音
   - name: simplification
     reset: 1
     states: [ 漢字, 汉字 ]
-5. ibus_rime.yaml
+5. ~/.config/ibus/rime/build/ibus_rime.yaml
+
 style:
   horizontal: true
