@@ -73,3 +73,5 @@
 (map! :ne "SPC j" 'evil-avy-goto-char)
 (map! :ne "M-1" 'neotree-find)
 (map! :ne "SPC v" 'vterm)
+
+(defalias 'forward-evil-word 'forward-evil-symbol)
