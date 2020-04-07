@@ -100,6 +100,8 @@
 (map! :ne "SPC j" 'evil-avy-goto-word-1)
 (map! :ne "SPC z" 'counsel-fzf)
 (map! :ne "; w" 'save-buffer)
+(map! :ne "; j" 'ace-window)
+(map! :ne "; d" 'delete-other-windows)
 (map! :ne "M-1" 'neotree-find)
 (map! :ne "SPC v" 'vterm)
 
