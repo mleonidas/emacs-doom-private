@@ -172,6 +172,7 @@ d))))
   :custom
   (org-ellipsis "⤵ ")
   :hook (org-mode . org-bullets-mode))
+(setq org-export-with-sub-superscripts nil)
 
 (setq org-hide-emphasis-markers t
       org-fontify-done-headline t
