@@ -105,6 +105,7 @@
 (map! :ne "M-1" 'neotree-find)
 (map! :ne "SPC v" 'vterm)
 
+;; region forward
 (defalias 'forward-evil-word 'forward-evil-symbol)
 
 (def-package! evil-fcitx)
