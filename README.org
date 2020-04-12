@@ -1,6 +1,8 @@
 #+OPTIONS: toc:nil
 #+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
 
+[[file:cut.png]]
+
 * PLUGINS & FEATURES
 1. lsp-java
 2. ejc-sql

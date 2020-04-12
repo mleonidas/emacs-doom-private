@@ -1,3 +1,4 @@
+![img](cut.png)
 
 
 # PLUGINS & FEATURES
