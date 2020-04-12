@@ -16,7 +16,7 @@
 
 # INSTALL EMACS
 
-Choose your operating system and install it.
+Choose your operation system and install it.
 
 <https://www.gnu.org/software/emacs/>
 
@@ -35,7 +35,7 @@ Choose your operating system and install it.
 
 Make sure that you have some setting in your terminal environment.
 
-Set a vpn if you need it.
+Set up a vpn if you need it.
 
     export http_proxy="ip:port"
     export https_proxy="ip:port"
@@ -44,7 +44,7 @@ Set your emacs cmd for doom install.
 
     export EMACS=/bin/emacs26
 
-At last run below, this will take few minutes.And it is depends on the quality of your network.
+At last run below, this will take few minutes. And it depends on the quality of your network.
 
     ~/.emacs.doom/bin/doom install
 
