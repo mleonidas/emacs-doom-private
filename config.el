@@ -190,7 +190,7 @@ d))))
 (setq prettify-symbols-unprettify-at-point 'right-edge)
 (add-hook 'org-mode-hook 'prettify-symbols-mode)
 ;; load image in org mode
-(defun org-toggle-iimage-in-org ()
+(defun org-toggle-image-in-org ()
   "display images in your org file"
   (interactive)
   (if (face-underline-p 'org-link)
