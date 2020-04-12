@@ -6,7 +6,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "van"
+(setq user-full-name "LZJ"
       user-mail-address "--")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -19,30 +19,30 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 17))
+(setq doom-font (font-spec :family "monospace" :size 17))
 ;; (setq doom-font (font-spec :family "Source Code Variable" :size 15))
 
-(defun +my/better-font()
-  (interactive)
-  ;; english font
-  (if (display-graphic-p)
-      (progn
-        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 17)) ;; 11 13 17 19 23
-        ;; chinese font
-        (dolist (charset '(kana han symbol cjk-misc bopomofo))
-          (Set-fontset-font (frame-parameter nil 'font)
-                            charset
-                            (font-spec :family "Sarasa Mono SC" 16)))) ;; 14 16 20 22 28
-    ))
-
-(defun +my|init-font(frame)
-  (with-selected-frame frame
-    (if (display-graphic-p)
-        (+my/better-font))))
-
-(if (and (fboundp 'daemonp) (daemonp))
-    (add-hook 'after-make-frame-functions #'+my|init-font)
-  (+my/better-font))
+;;(defun +my/better-font()
+;;  (interactive)
+;;  ;; english font
+;;  (if (display-graphic-p)
+;;      (progn
+;;        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 17)) ;; 11 13 17 19 23
+;;        ;; chinese font
+;;        (dolist (charset '(kana han symbol cjk-misc bopomofo))
+;;          (Set-fontset-font (frame-parameter nil 'font)
+;;                            charset
+;;                            (font-spec :family "Sarasa Mono SC" 16)))) ;; 14 16 20 22 28
+;;    ))
+;;
+;;(defun +my|init-font(frame)
+;;  (with-selected-frame frame
+;;    (if (display-graphic-p)
+;;        (+my/better-font))))
+;;
+;;(if (and (fboundp 'daemonp) (daemonp))
+;;    (add-hook 'after-make-frame-functions #'+my|init-font)
+;;  (+my/better-font))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -75,7 +75,7 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 ;;
-(load-theme 'doom-gruvbox t)
+;; (load-theme 'doom-gruvbox t)
 ;; (def-package! company-box
 ;;   :after company
 ;;   :hook (company-mode . company-box-mode))
@@ -97,13 +97,21 @@
 ;;  (dap-mode t)
 ;;  (dap-ui-mode t))
 ;; (map! :ne "SPC j" 'evil-avy-goto-char)
+
+(map! :ne "f" 'evil-avy-goto-word-1)
 (map! :ne "SPC j" 'evil-avy-goto-word-1)
 (map! :ne "SPC z" 'counsel-fzf)
+(map! :ne "SPC v" 'vterm)
+(map! :ne "M-1" 'neotree-find)
+(map! :ne "M-j" 'drag-stuff-down)
+(map! :ne "M-k" 'drag-stuff-up)
 (map! :ne "; w" 'save-buffer)
+(map! :ne "; b" 'switch-to-buffer)
 (map! :ne "; j" 'ace-window)
 (map! :ne "; d" 'delete-other-windows)
-(map! :ne "M-1" 'neotree-find)
-(map! :ne "SPC v" 'vterm)
+(map! :ne "; f" 'neotree-find)
+(map! :ne "; n" 'neotree-toggle)
+(map! :ne "; r" 'doom/reload)
 
 ;; region forward
 (defalias 'forward-evil-word 'forward-evil-symbol)
@@ -156,7 +164,7 @@
 
 (def-package! insert-translated-name)
 (setq insert-translated-name-translate-engine "youdao")
-(map! :ne "SPC t t" 'insert-translated-name-replace-with-camel)
+(map! :ne "; t" 'insert-translated-name-replace-with-camel)
 
 ;; (setq counsel-fzf-dir-function 'vc-root-dir)
 (setq counsel-fzf-dir-function
@@ -217,3 +225,5 @@ d))))
                      (move-marker end nil)))))
     (indent-region start end)))
 (setq gc-cons-threshold (* 2 1000 1000))
+
+(setq display-line-numbers-type 'relative)
