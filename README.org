@@ -1,7 +1,7 @@
 #+OPTIONS: toc:nil
 #+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
 
-[[file:cut.png]]
+[[file:tui-cut.png]]
 
 * PLUGINS & FEATURES
 1. lsp-java

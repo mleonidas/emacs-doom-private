@@ -1,4 +1,4 @@
-![img](cut.png)
+![img](tui-cut.png)
 
 
 # PLUGINS & FEATURES
