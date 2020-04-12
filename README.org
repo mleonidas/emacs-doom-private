@@ -57,3 +57,5 @@ At last run below, this will take few minutes. And it depends on the quality of 
 [[https://github.com/kostafey/ejc-sql]]
 
 [[https://plantuml.com/]]
+
+[[https://github.com/emacs-lsp/lsp-java]]
