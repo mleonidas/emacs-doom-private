@@ -48,3 +48,12 @@ At last run below, this will take few minutes. And it depends on the quality of 
 #+BEGIN_SRC shell
 ~/.emacs.doom/bin/doom install
 #+END_SRC
+* DEPENDENCIES
+
+[[https://github.com/junegunn/fzf]]
+
+[[https://github.com/BurntSushi/ripgrep]]
+
+[[https://github.com/kostafey/ejc-sql]]
+
+[[https://plantuml.com/]]

@@ -48,3 +48,14 @@ At last run below, this will take few minutes. And it depends on the quality of 
 
     ~/.emacs.doom/bin/doom install
 
+
+# DEPENDENCIES
+
+<https://github.com/junegunn/fzf>
+
+<https://github.com/BurntSushi/ripgrep>
+
+<https://github.com/kostafey/ejc-sql>
+
+<https://plantuml.com/>
+
