@@ -1,5 +1,18 @@
 
 
+# PLUGINS & FEATURES
+
+1.  lsp-java
+2.  ejc-sql
+3.  evil-fcitx
+4.  insert-translated-name
+5.  plantuml uml
+6.  number-region
+7.  counsel-fzf-dir-function
+8.  custom-set-faces
+9.  some shortcuts
+
+
 # INSTALL EMACS
 
 Choose your operating system and install it.
@@ -30,7 +43,7 @@ Set your emacs cmd for doom install.
 
     export EMACS=/bin/emacs26
 
-At last run below, this will take few minutes.And it&rsquo;s depends on the quality of your network.
+At last run below, this will take few minutes.And it is depends on the quality of your network.
 
     ~/.emacs.doom/bin/doom install
 
