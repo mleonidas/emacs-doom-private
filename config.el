@@ -82,7 +82,11 @@
 
 (def-package! lsp-java
   :config
-)
+  (setq lombok-jar-path (expand-file-name "~/.doom.d/myconfig/lombok.jar"))
+  (setq lsp-java-vmargs `(
+                          , (concat "-javaagent:" lombok-jar-path)
+                          , (concat "-Xbootclasspath/a:" lombok-jar-path)
+                            )))
 (setq lsp-enable-file-watchers nil)
 (setq lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
 (add-hook 'java-mode-hook #'lsp)
