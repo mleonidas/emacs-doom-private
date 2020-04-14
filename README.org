@@ -40,7 +40,7 @@ export https_proxy="ip:port"
 Set your emacs cmd for doom install.
 
 #+BEGIN_SRC shell
-export EMACS=/bin/emacs26
+export EMACS= $YOUR EMACS CMD PATH$
 #+END_SRC
 
 At last run below, this will take few minutes. And it depends on the quality of your network.
