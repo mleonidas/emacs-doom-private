@@ -42,7 +42,7 @@ Set up a vpn if you need it.
 
 Set your emacs cmd for doom install.
 
-    export EMACS=/bin/emacs26
+    export EMACS= $YOUR EMACS CMD PATH$
 
 At last run below, this will take few minutes. And it depends on the quality of your network.
 
