@@ -20,7 +20,7 @@ https://www.gnu.org/software/emacs/
 * CLONE DOOM
 
 #+BEGIN_SRC shell
-clone https://github.com/hlissner/doom-emacs.git ~/.emacs.doom/
+git clone https://github.com/hlissner/doom-emacs.git ~/.emacs.doom/
 #+END_SRC
 * CLONE REPOSITORY
 
