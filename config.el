@@ -79,7 +79,7 @@
 ;;   :after company
 ;;   :hook (company-mode . company-box-mode))
 
-(def-package! lsp-java
+(use-package! lsp-java
   :config
   (setq lombok-jar-path (expand-file-name "~/.doom.d/myconfig/lombok.jar"))
   (setq lsp-java-vmargs `(
@@ -91,7 +91,7 @@
 (add-hook 'java-mode-hook #'lsp)
 (global-set-key (kbd "M-i") 'lsp-goto-implementation)
 (global-set-key (kbd "M-d") 'lsp-goto-type-definition)
-(def-package! dap-java
+(use-package! dap-java
   :defer 2)
 ;;(def-package! dap-mode
 ;;  :after java-mode
@@ -119,8 +119,8 @@
 ;; region forward
 (defalias 'forward-evil-word 'forward-evil-symbol)
 
-(def-package! evil-fcitx)
-(def-package! ejc-sql)
+(use-package! evil-fcitx)
+(use-package! ejc-sql)
 (add-hook 'ejc-sql-minor-mode-hook
           (lambda ()
             (auto-complete-mode nil)))
@@ -131,7 +131,7 @@
             (ejc-set-column-width-limit nil)
             ))
 (setq ejc-result-table-impl 'ejc-result-mode)
-(def-package! db)
+(use-package! db)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -165,7 +165,7 @@
 (setq evil-operator-state-tag "OPERATOR")
 (setq evil-visual-state-tag "VISUAL")
 
-(def-package! insert-translated-name)
+(use-package! insert-translated-name)
 (setq insert-translated-name-translate-engine "youdao")
 (map! :ne "; t" 'insert-translated-name-replace-with-camel)
 
@@ -179,7 +179,7 @@
   default-directory
 d))))
 
-(def-package! org-bullets-mode
+(use-package! org-bullets-mode
   :custom
   (org-ellipsis "⤵ ")
   :hook (org-mode . org-bullets-mode))
@@ -230,3 +230,9 @@ d))))
 (setq gc-cons-threshold (* 2 1000 1000))
 
 (setq display-line-numbers-type 'relative)
+
+;; (fset 'table-name-6-fix5
+;;    [?v ?e ?y ?: ?6 ?\C-m ?$ escape ?b ?v ?e ?p ?\C-c ?\C-c ?5 ?j ?$ ?F ?= ?l ?v ?e ?y ?5 ?k ?* ?n ?n ?A ?  escape ?p escape ?\; ?w ?j ?0])
+
+(fset 'table-name-6-fix5-n
+   [?v ?e ?y ?: ?\C-m ?$ escape ?b ?v ?e ?p ?\C-c ?\C-c ?* ?n ?$ ?F ?= ?l ?v ?e ?y ?n ?w ?p ?\C-i ?\; ?w])
