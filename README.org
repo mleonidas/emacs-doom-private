@@ -44,19 +44,39 @@ generate .project & .classpath files
 #+BEGIN_SRC
 mvn eclipse:eclipse
 #+END_SRC
-2. projectlombok  
-3. ejc-sql
-  
+1. projectlombok
+2. ejc-sql
  config in the ../myconfig/db.el
 
-4. evil-fcitx
+   | M-x | ejc-connection | connect your setting |
+   | M-x | C-c  C-c       | execute              |
+  
+#+BEGIN_SRC xml
+<?xml version="1.0" encoding="utf-8"?>
+<SELECT name='for org'>
+SELECT * FROM TABLE_ORG
+</SELECT>
 
-5. insert-translated-name
-6. plantuml uml
-7. number-region
-8. counsel-fzf-dir-function
-9. custom-set-faces
-10. some shortcuts
+<SELECT name='for delimiter>
+delimiter ;
+COMMENT ON COLUMN TABLE_ORG.PROJECT_CODE IS '项目编码';
+COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
+</SELECT>
+#+END_SRC
+3. evil-fcitx
+
+4. insert-translated-name
+   | ; t | toggle translate word |
+5. plantuml uml
+
+#+BEGIN_SRC plantuml :file ime.svg
+a -> b
+#+END_SRC
+
+6. number-region
+7. counsel-fzf-dir-function
+8. custom-set-faces
+9. some shortcuts
 * DEPENDENCIES
 
 [[https://github.com/junegunn/fzf]]

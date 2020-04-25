@@ -46,17 +46,72 @@ generate .project & .classpath files
 
 1.  projectlombok
 2.  ejc-sql
-    
     config in the ../myconfig/db.el
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="org-left">M-x</td>
+    <td class="org-left">ejc-connection</td>
+    <td class="org-left">connect your setting</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">M-x</td>
+    <td class="org-left">C-c  C-c</td>
+    <td class="org-left">execute</td>
+    </tr>
+    </tbody>
+    </table>
 
-3.  evil-fcitx
+    <?xml version="1.0" encoding="utf-8"?>
+    <SELECT name='for org'>
+    SELECT * FROM TABLE_ORG
+    </SELECT>
+    
+    <SELECT name='for delimiter>
+    delimiter ;
+    COMMENT ON COLUMN TABLE_ORG.PROJECT_CODE IS '项目编码';
+    COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
+    </SELECT>
 
-4.  insert-translated-name
-5.  plantuml uml
-6.  number-region
-7.  counsel-fzf-dir-function
-8.  custom-set-faces
-9.  some shortcuts
+1.  evil-fcitx
+
+2.  insert-translated-name
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="org-left">; t</td>
+    <td class="org-left">toggle translate word</td>
+    </tr>
+    </tbody>
+    </table>
+3.  plantuml uml
+
+    a -> b
+
+1.  number-region
+2.  counsel-fzf-dir-function
+3.  custom-set-faces
+4.  some shortcuts
 
 
 # DEPENDENCIES
