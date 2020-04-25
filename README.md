@@ -48,7 +48,7 @@ generate .project & .classpath files
 2.  ejc-sql
 
     (ejc-create-connection
-     "nhlh-bz-test"
+     "test"
      :classpath (concat "~/.m2/repository/com/oracle"
                         "/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar")
      :dbtype "oracle"
