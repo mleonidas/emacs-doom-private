@@ -75,15 +75,21 @@ generate .project & .classpath files
     </tbody>
     </table>
 
-    <?xml version="1.0" encoding="utf-8"?>
+    
     <SELECT name='for org'>
+    
     SELECT * FROM TABLE_ORG
+    
     </SELECT>
     
     <SELECT name='for delimiter>
+    
     delimiter ;
+    
     COMMENT ON COLUMN TABLE_ORG.PROJECT_CODE IS '项目编码';
+    
     COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
+    
     </SELECT>
 
 1.  evil-fcitx
@@ -107,9 +113,8 @@ generate .project & .classpath files
     </table>
 3.  plantuml uml
 
-;#+BEGIN\_SRC plantuml :file ime.svg
-;a -> b
-;#+END\_SRC
+    
+    a -> b
 
 1.  number-region
 2.  counsel-fzf-dir-function
