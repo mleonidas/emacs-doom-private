@@ -49,6 +49,7 @@ generate .project & .classpath files
     
     config in the ../myconfig/db.el
 
+    
     (ejc-create-connection
      "test-1"
      :classpath (concat "~/.m2/repository/com/oracle"
