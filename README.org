@@ -46,8 +46,8 @@ mvn eclipse:eclipse
 #+END_SRC
 2. projectlombok
 3. ejc-sql
-  
-#+BEGIN_SRC
+ config in the ../myconfig/db.el
+#+BEGIN_SRC Lisp
 (ejc-create-connection
  "test-1"
  :classpath (concat "~/.m2/repository/com/oracle"

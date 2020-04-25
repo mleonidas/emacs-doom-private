@@ -46,6 +46,7 @@ generate .project & .classpath files
 
 1.  projectlombok
 2.  ejc-sql
+    config in the ../myconfig/db.el
 
     (ejc-create-connection
      "test-1"
