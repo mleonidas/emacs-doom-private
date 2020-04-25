@@ -49,27 +49,14 @@ generate .project & .classpath files
     
     config in the ../myconfig/db.el
 
-    
-    (ejc-create-connection
-     "test-1"
-     :classpath (concat "~/.m2/repository/com/oracle"
-                        "/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar")
-     :dbtype "oracle"
-     :dbname "orcl"
-     :host "--------------"
-     :port "1521"
-     :user "-------"
-     :password "-----------"
-     :separator "</?\.*>")
+3.  evil-fcitx
 
-1.  evil-fcitx
-
-2.  insert-translated-name
-3.  plantuml uml
-4.  number-region
-5.  counsel-fzf-dir-function
-6.  custom-set-faces
-7.  some shortcuts
+4.  insert-translated-name
+5.  plantuml uml
+6.  number-region
+7.  counsel-fzf-dir-function
+8.  custom-set-faces
+9.  some shortcuts
 
 
 # DEPENDENCIES
