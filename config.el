@@ -9,6 +9,12 @@
 (setq user-full-name "LZJ"
       user-mail-address "--")
 
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(package-initialize)
+
+(setq frame-title-format '("VIM"))
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -86,13 +92,23 @@
                           , (concat "-javaagent:" lombok-jar-path)
                           , (concat "-Xbootclasspath/a:" lombok-jar-path)
                             )))
+;; to enable the lenses
+;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+
 (setq lsp-enable-file-watchers nil)
 (setq lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
 (add-hook 'java-mode-hook #'lsp)
+
+(setq lsp-java-import-maven-enabled t)
+(setq lsp-java-maven-download-sources t)
+(setq lsp-java-configuration-maven-user-settings (expand-file-name "~/.m2/settings.xml"))
+
 (global-set-key (kbd "M-i") 'lsp-goto-implementation)
 (global-set-key (kbd "M-d") 'lsp-goto-type-definition)
 (use-package! dap-java
   :defer 2)
+
 ;;(def-package! dap-mode
 ;;  :after java-mode
 ;;  :ensure t
@@ -110,7 +126,7 @@
 (map! :ne "M-k" 'drag-stuff-up)
 (map! :ne "; w" 'save-buffer)
 (map! :ne "; b" 'switch-to-buffer)
-(map! :ne "; j" 'ace-window)
+(map! :ne "; e" 'ace-window)
 (map! :ne "; d" 'delete-other-windows)
 (map! :ne "; f" 'neotree-find)
 (map! :ne "; n" 'neotree-toggle)
@@ -179,10 +195,11 @@
   default-directory
 d))))
 
-(use-package! org-bullets-mode
-  :custom
-  (org-ellipsis "⤵ ")
-  :hook (org-mode . org-bullets-mode))
+;; (use-package! org-bullets-mode
+;;   :custom
+;;   (org-ellipsis "⤵ ")
+;;   :hook (org-mode . org-bullets-mode))
+
 (setq org-export-with-sub-superscripts nil)
 
 (setq org-hide-emphasis-markers t
@@ -236,3 +253,5 @@ d))))
 
 (fset 'table-name-6-fix5-n
    [?v ?e ?y ?: ?\C-m ?$ escape ?b ?v ?e ?p ?\C-c ?\C-c ?* ?n ?$ ?F ?= ?l ?v ?e ?y ?n ?w ?p ?\C-i ?\; ?w])
+
+(setq +doom-dashboard-banner-file (expand-file-name "banner/ue-colorful.png" doom-private-dir))

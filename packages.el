@@ -51,8 +51,15 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 (package! lsp-java)
 (package! dap-mode)
-(add-to-list 'load-path "~/.emacs.d/myconfig")
-(package! evil-fcitx)
 (package! ejc-sql)
-(package! company-box)
-(package! insert-translated-name)
+;;(package! company-box)
+(add-to-list 'load-path "~/.emacs.d/myconfig")
+
+;; (package! evil-fcitx
+;;  :recipe (:files ("~/.emacs.d/myconfig/evil-fcitx.el")))
+
+;; (package! insert-translated-name
+;;  :recipe (:files ("~/.emacs.d/myconfig/insert-translated-name.el")))
+
+;;(package! evil-fcitx)
+;;(package! insert-translated-name)
