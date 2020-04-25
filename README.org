@@ -50,15 +50,15 @@ mvn eclipse:eclipse
  | M-x   ejc-connection | connect your setting     |
  | C-c  C-c             | execute                  |
 
-#+BEGIN_SRC
+#+BEGIN_SRC xml
 
-<SELECT name='for org'>
+<SELECT>
 
-SELECT * FROM TABLE_ORG
+  SELECT * FROM TABLE_ORG
 
 </SELECT>
 
-<SELECT name='for delimiter>
+<SELECT>
 
 delimiter ;
 
@@ -74,11 +74,11 @@ COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
    | ; t | toggle translate word |
 5. plantuml uml
 
-#+BEGIN_SRC plantuml :file ime.svg
+\#+BEGIN_SRC plantuml :file ime.svg
 
 a -> b
 
-#+END_SRC
+\#+END_SRC
 
 6. number-region
 7. counsel-fzf-dir-function

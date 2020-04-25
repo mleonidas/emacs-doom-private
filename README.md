@@ -76,13 +76,13 @@ generate .project & .classpath files
     </table>
 
     
-    <SELECT name='for org'>
+    <SELECT>
     
-    SELECT * FROM TABLE_ORG
+      SELECT * FROM TABLE_ORG
     
     </SELECT>
     
-    <SELECT name='for delimiter>
+    <SELECT>
     
     delimiter ;
     
@@ -113,8 +113,11 @@ generate .project & .classpath files
     </table>
 3.  plantuml uml
 
-    
-    a -> b
+\\#+BEGIN\_SRC plantuml :file ime.svg
+
+a -> b
+
+\\#+END\_SRC
 
 1.  number-region
 2.  counsel-fzf-dir-function
