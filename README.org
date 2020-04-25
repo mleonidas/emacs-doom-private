@@ -46,9 +46,10 @@ mvn eclipse:eclipse
 #+END_SRC
 2. projectlombok
 3. ejc-sql
+  
 #+BEGIN_SRC
 (ejc-create-connection
- "test"
+ "test-1"
  :classpath (concat "~/.m2/repository/com/oracle"
                     "/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar")
  :dbtype "oracle"
@@ -59,6 +60,7 @@ mvn eclipse:eclipse
  :password "-----------"
  :separator "</?\.*>")
 #+END_SRC
+
 4. evil-fcitx
 
 5. insert-translated-name
