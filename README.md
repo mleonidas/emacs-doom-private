@@ -78,7 +78,7 @@ generate .project & .classpath files
     
     <SELECT>
     
-      SELECT * FROM TABLE_ORG
+    SELECT * FROM TABLE_ORG
     
     </SELECT>
     

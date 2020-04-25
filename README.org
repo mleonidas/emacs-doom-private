@@ -50,11 +50,11 @@ mvn eclipse:eclipse
  | M-x   ejc-connection | connect your setting     |
  | C-c  C-c             | execute                  |
 
-#+BEGIN_SRC xml
+#+BEGIN_SRC
 
 <SELECT>
 
-  SELECT * FROM TABLE_ORG
+SELECT * FROM TABLE_ORG
 
 </SELECT>
 
@@ -68,6 +68,7 @@ COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
 
 </SELECT>
 #+END_SRC
+
 3. evil-fcitx
 
 4. insert-translated-name
