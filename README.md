@@ -44,6 +44,28 @@ generate .project & .classpath files
 
     mvn eclipse:eclipse
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">M-i</td>
+<td class="org-left">lsp-goto-implementation</td>
+</tr>
+
+
+<tr>
+<td class="org-left">M-d</td>
+<td class="org-left">lsp-goto-type-definition</td>
+</tr>
+</tbody>
+</table>
+
 1.  projectlombok
 2.  ejc-sql
     
@@ -123,6 +145,100 @@ a -> b
 2.  counsel-fzf-dir-function
 3.  custom-set-faces
 4.  some shortcuts
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">evil-avy-goto-word-1</td>
+</tr>
+
+
+<tr>
+<td class="org-left">SPC j</td>
+<td class="org-left">evil-avy-goto-word-1</td>
+</tr>
+
+
+<tr>
+<td class="org-left">SPC z</td>
+<td class="org-left">counsel-fzf</td>
+</tr>
+
+
+<tr>
+<td class="org-left">SPC v</td>
+<td class="org-left">vterm</td>
+</tr>
+
+
+<tr>
+<td class="org-left">M-1</td>
+<td class="org-left">neotree-find</td>
+</tr>
+
+
+<tr>
+<td class="org-left">M-j</td>
+<td class="org-left">drag-stuff-down</td>
+</tr>
+
+
+<tr>
+<td class="org-left">M-k</td>
+<td class="org-left">drag-stuff-up</td>
+</tr>
+
+
+<tr>
+<td class="org-left">; w</td>
+<td class="org-left">save-buffer</td>
+</tr>
+
+
+<tr>
+<td class="org-left">; b</td>
+<td class="org-left">switch-to-buffer</td>
+</tr>
+
+
+<tr>
+<td class="org-left">; e</td>
+<td class="org-left">ace-window</td>
+</tr>
+
+
+<tr>
+<td class="org-left">; d</td>
+<td class="org-left">delete-other-windows</td>
+</tr>
+
+
+<tr>
+<td class="org-left">; f</td>
+<td class="org-left">neotree-find</td>
+</tr>
+
+
+<tr>
+<td class="org-left">; n</td>
+<td class="org-left">neotree-toggle</td>
+</tr>
+
+
+<tr>
+<td class="org-left">; r</td>
+<td class="org-left">doom/reload</td>
+</tr>
+</tbody>
+</table>
 
 
 # DEPENDENCIES
