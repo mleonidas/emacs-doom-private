@@ -1,19 +1,6 @@
 ![img](tui-cut.png)
 
 
-# PLUGINS & FEATURES
-
-1.  lsp-java
-2.  ejc-sql
-3.  evil-fcitx
-4.  insert-translated-name
-5.  plantuml uml
-6.  number-region
-7.  counsel-fzf-dir-function
-8.  custom-set-faces
-9.  some shortcuts
-
-
 # INSTALL EMACS
 
 Choose your operation system and install it.
@@ -47,6 +34,39 @@ Set your emacs cmd for doom install.
 At last run below, this will take few minutes. And it depends on the quality of your network.
 
     ~/.emacs.doom/bin/doom install
+
+
+# PLUGINS & FEATURES
+
+1.  lsp-java
+
+generate .project & .classpath files
+
+    mvn eclipse:eclipse
+
+1.  projectlombok
+2.  ejc-sql
+
+    (ejc-create-connection
+     "nhlh-bz-test"
+     :classpath (concat "~/.m2/repository/com/oracle"
+                        "/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar")
+     :dbtype "oracle"
+     :dbname "orcl"
+     :host "--------------"
+     :port "1521"
+     :user "-------"
+     :password "-----------"
+     :separator "</?\.*>")
+
+1.  evil-fcitx
+
+2.  insert-translated-name
+3.  plantuml uml
+4.  number-region
+5.  counsel-fzf-dir-function
+6.  custom-set-faces
+7.  some shortcuts
 
 
 # DEPENDENCIES
