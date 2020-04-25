@@ -46,7 +46,6 @@ generate .project & .classpath files
 
 1.  projectlombok
 2.  ejc-sql
-    config in the ../myconfig/db.el
     
     <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
     
@@ -55,19 +54,21 @@ generate .project & .classpath files
     <col  class="org-left" />
     
     <col  class="org-left" />
-    
-    <col  class="org-left" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">M-x</td>
-    <td class="org-left">ejc-connection</td>
+    <td class="org-left">config</td>
+    <td class="org-left">in the ../myconfig/db.el</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">M-x   ejc-connection</td>
     <td class="org-left">connect your setting</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">M-x</td>
     <td class="org-left">C-c  C-c</td>
     <td class="org-left">execute</td>
     </tr>
@@ -106,7 +107,9 @@ generate .project & .classpath files
     </table>
 3.  plantuml uml
 
-    a -> b
+;#+BEGIN\_SRC plantuml :file ime.svg
+;a -> b
+;#+END\_SRC
 
 1.  number-region
 2.  counsel-fzf-dir-function
