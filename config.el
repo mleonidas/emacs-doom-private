@@ -108,7 +108,14 @@
 (global-set-key (kbd "M-d") 'lsp-goto-type-definition)
 (use-package! dap-java
   :defer 2)
+(use-package! dap-mode
+  :defer 2
+  :ensure t :after lsp-mode
+  :config
+  (dap-mode t)
+  (dap-ui-mode t))
 
+;;
 ;;(def-package! dap-mode
 ;;  :after java-mode
 ;;  :ensure t
@@ -132,7 +139,14 @@
 (map! :ne "; l" 'neotree-toggle)
 (map! :ne "; r" 'doom/reload)
 
-
+(map! :ne ", n" 'dap-next)
+(map! :ne ", b" 'dap-breakpoint-toggle)
+(map! :ne ", c" 'dap-continue)
+(map! :ne ", r" 'dap-eval-region)
+(map! :ne ", a" 'dap-eval-thing-at-point)
+(map! :ne ", d" 'dap-debug)
+(map! :ne ", u" 'dap-ui-repl)
+;;
 ;; (global-set-key (kbd "<f7>") 'symbol-overlay-mode)
 
 ;; region forward
@@ -171,8 +185,8 @@
  '(lsp-face-semhl-variable-local ((t (:foreground "#6272a4"))))
  '(powerline-active0 ((t (:foreground "#f8f8f2"))))
  '(powerline-active1 ((t (:foreground "#FFDEAD"))))
- '(doom-modeline-evil-insert-state ((t (:foreground "#B22222" :background "#FFB90F"))))
- '(doom-modeline-evil-normal-state ((t (:foreground "#FFFFFF" :background "#2F4F4F"))))
+ ;; '(doom-modeline-evil-insert-state ((t (:foreground "#B22222" :background "#FFB90F"))))
+ ;; '(doom-modeline-evil-normal-state ((t (:foreground "#FFFFFF" :background "#2F4F4F"))))
  '(show-paren-match ((t (:background "#6272a4" :foreground "#00000")))))
 
 (setq evil-emacs-state-tag "EMACS")
@@ -253,9 +267,9 @@ d))))
 
 (use-package! bm)
 
-(map! :ne "; c" 'bm-toggle)
-(map! :ne "; n" 'bm-next)
-(map! :ne "; p" 'bm-previous)
+(map! :ne "' c" 'bm-toggle)
+(map! :ne "' n" 'bm-next)
+(map! :ne "' p" 'bm-previous)
 (bm-bookmark-add nil nil t)
 
 (fset 'table-name-6-fix5-n
