@@ -129,8 +129,11 @@
 (map! :ne "; e" 'ace-window)
 (map! :ne "; d" 'delete-other-windows)
 (map! :ne "; f" 'neotree-find)
-(map! :ne "; n" 'neotree-toggle)
+(map! :ne "; l" 'neotree-toggle)
 (map! :ne "; r" 'doom/reload)
+
+
+;; (global-set-key (kbd "<f7>") 'symbol-overlay-mode)
 
 ;; region forward
 (defalias 'forward-evil-word 'forward-evil-symbol)
@@ -248,10 +251,16 @@ d))))
 
 (setq display-line-numbers-type 'relative)
 
-;; (fset 'table-name-6-fix5
-;;    [?v ?e ?y ?: ?6 ?\C-m ?$ escape ?b ?v ?e ?p ?\C-c ?\C-c ?5 ?j ?$ ?F ?= ?l ?v ?e ?y ?5 ?k ?* ?n ?n ?A ?  escape ?p escape ?\; ?w ?j ?0])
+(use-package! bm)
+
+(map! :ne "; c" 'bm-toggle)
+(map! :ne "; n" 'bm-next)
+(map! :ne "; p" 'bm-previous)
+(bm-bookmark-add nil nil t)
 
 (fset 'table-name-6-fix5-n
    [?v ?e ?y ?: ?\C-m ?$ escape ?b ?v ?e ?p ?\C-c ?\C-c ?* ?n ?$ ?F ?= ?l ?v ?e ?y ?n ?w ?p ?\C-i ?\; ?w])
 
 (setq +doom-dashboard-banner-file (expand-file-name "banner/ue-colorful.png" doom-private-dir))
+
+
