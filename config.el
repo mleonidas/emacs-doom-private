@@ -13,7 +13,7 @@
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 
-(setq frame-title-format '("VIM"))
+(setq frame-title-format '("NEO-VIM-IED-FROM-1975"))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -25,28 +25,28 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 17))
-;; (setq doom-font (font-spec :family "Source Code Variable" :size 15))
+;; (setq doom-font (font-spec :family "monospace" :size 17))
+(setq doom-font (font-spec :family "Sarasa Fixed CL" :size 20))
 
-;;(defun +my/better-font()
-;;  (interactive)
-;;  ;; english font
-;;  (if (display-graphic-p)
-;;      (progn
-;;        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 17)) ;; 11 13 17 19 23
-;;        ;; chinese font
-;;        (dolist (charset '(kana han symbol cjk-misc bopomofo))
-;;          (Set-fontset-font (frame-parameter nil 'font)
-;;                            charset
-;;                            (font-spec :family "Sarasa Mono SC" 16)))) ;; 14 16 20 22 28
-;;    ))
-;;
-;;(defun +my|init-font(frame)
-;;  (with-selected-frame frame
-;;    (if (display-graphic-p)
-;;        (+my/better-font))))
-;;
-;;(if (and (fboundp 'daemonp) (daemonp))
+(defun +my/better-font()
+ (interactive)
+ ;; english font
+ (if (display-graphic-p)
+     (progn
+       (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 20)) ;; 11 13 17 19 23
+       ;; chinese font
+       (dolist (charset '(kana han symbol cjk-misc bopomofo))
+         (Set-fontset-font (frame-parameter nil 'font)
+                           charset
+                           (font-spec :family "Sarasa Mono SC" 20)))) ;; 14 16 20 22 28
+   ))
+
+(defun +my|init-font(frame)
+ (with-selected-frame frame
+   (if (display-graphic-p)
+       (+my/better-font))))
+
+;; (if (and (fboundp 'daemonp) (daemonp))
 ;;    (add-hook 'after-make-frame-functions #'+my|init-font)
 ;;  (+my/better-font))
 
@@ -81,9 +81,6 @@
 ;; they are implemented.
 ;;
 ;; (load-theme 'doom-gruvbox t)
-;; (def-package! company-box
-;;   :after company
-;;   :hook (company-mode . company-box-mode))
 
 (use-package! lsp-java
   :config
@@ -115,7 +112,9 @@
   (dap-mode t)
   (dap-ui-mode t))
 
-;;
+;; (use-package! company-box
+;;   :after company
+;;   :hook (company-mode . company-box-mode))
 ;;(def-package! dap-mode
 ;;  :after java-mode
 ;;  :ensure t
@@ -136,8 +135,12 @@
 (map! :ne "; e" 'ace-window)
 (map! :ne "; d" 'delete-other-windows)
 (map! :ne "; f" 'neotree-find)
-(map! :ne "; l" 'neotree-toggle)
-(map! :ne "; r" 'doom/reload)
+(map! :ne "; h" 'neotree-toggle)
+;; (map! :ne "; r" 'doom/reload)
+(map! :ne "; i" 'lsp-java-organize-imports)
+(map! :ne "; m" 'lsp-java-add-unimplemented-methods)
+(map! :ne ", f" 'lsp-format-buffer)
+
 
 (map! :ne ", n" 'dap-next)
 (map! :ne ", b" 'dap-breakpoint-toggle)
@@ -165,6 +168,9 @@
             ))
 (setq ejc-result-table-impl 'ejc-result-mode)
 (use-package! db)
+
+(use-package! string-inflection)
+(map! :ne "; r" 'string-inflection-java-style-cycle)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

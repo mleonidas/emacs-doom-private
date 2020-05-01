@@ -39,8 +39,9 @@ At last run below, this will take few minutes. And it depends on the quality of 
 ~/.emacs.doom/bin/doom install
 #+END_SRC
 * PLUGINS & FEATURES
-1. lsp-java
+** lsp-java
 generate .project & .classpath files
+
 #+BEGIN_SRC
 mvn eclipse:eclipse
 #+END_SRC
@@ -48,8 +49,9 @@ mvn eclipse:eclipse
 | M-i | lsp-goto-implementation  |
 | M-d | lsp-goto-type-definition |
 
-1. projectlombok
-2. ejc-sql
+** projectlombok
+** ejc-sql
+
  | config               | in the ../myconfig/db.el |
  | M-x   ejc-connection | connect your setting     |
  | C-c  C-c             | execute                  |
@@ -57,53 +59,46 @@ mvn eclipse:eclipse
 #+BEGIN_SRC sql
 
 <SELECT>
-
 SELECT * FROM TABLE_ORG
-
 </SELECT>
 
 <SELECT>
-
 delimiter ;
-
 COMMENT ON COLUMN TABLE_ORG.PROJECT_CODE IS '项目编码';
-
 COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
-
 </SELECT>
 #+END_SRC
 
-3. evil-fcitx
-
-4. insert-translated-name
+** evil-fcitx
+** insert-translated-name
    | ; t | toggle translate word |
-5. plantuml uml
+** plantuml uml
+#+BEGIN_SRC
 
-\#+BEGIN_SRC plantuml :file ime.svg
-
+,#+BEGIN_SRC plantuml :file ime.svg
 a -> b
+,#+END_SRC
 
-\#+END_SRC
-
-6. number-region
-7. counsel-fzf-dir-function
-8. custom-set-faces
-9. some shortcuts
-
-| f     | evil-avy-goto-word-1  |
-| SPC j | evil-avy-goto-word-1  |
-| SPC z | counsel-fzf           |
-| SPC v | vterm                 |
-| M-1   | neotree-find          |
-| M-j   | drag-stuff-down       |
-| M-k   | drag-stuff-up         |
-| ; w   | save-buffer           |
-| ; b   | switch-to-buffer      |
-| ; e   | ace-window            |
-| ; d   | delete-other-windows  |
-| ; f   | neotree-find          |
-| ; n   | neotree-toggle        |
-| ; r   | doom/reload           |
+#+END_SRC
+** number-region
+** counsel-fzf-dir-function
+** custom-set-faces
+** some shortcuts
+ | key   | function             |
+ | f     | evil-avy-goto-word-1 |
+ | SPC j | evil-avy-goto-word-1 |
+ | SPC z | counsel-fzf          |
+ | SPC v | vterm                |
+ | M-1   | neotree-find         |
+ | M-j   | drag-stuff-down      |
+ | M-k   | drag-stuff-up        |
+ | ; w   | save-buffer          |
+ | ; b   | switch-to-buffer     |
+ | ; e   | ace-window           |
+ | ; d   | delete-other-windows |
+ | ; f   | neotree-find         |
+ | ; n   | neotree-toggle       |
+ | ; r   | doom/reload          |
 * DEPENDENCIES
 
 [[https://github.com/junegunn/fzf]]

@@ -38,7 +38,8 @@ At last run below, this will take few minutes. And it depends on the quality of 
 
 # PLUGINS & FEATURES
 
-1.  lsp-java
+
+## lsp-java
 
 generate .project & .classpath files
 
@@ -66,85 +67,11 @@ generate .project & .classpath files
 </tbody>
 </table>
 
-1.  projectlombok
-2.  ejc-sql
-    
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    </colgroup>
-    <tbody>
-    <tr>
-    <td class="org-left">config</td>
-    <td class="org-left">in the ../myconfig/db.el</td>
-    </tr>
-    
-    
-    <tr>
-    <td class="org-left">M-x   ejc-connection</td>
-    <td class="org-left">connect your setting</td>
-    </tr>
-    
-    
-    <tr>
-    <td class="org-left">C-c  C-c</td>
-    <td class="org-left">execute</td>
-    </tr>
-    </tbody>
-    </table>
 
-    
-    <SELECT>
-    
-    SELECT * FROM TABLE_ORG
-    
-    </SELECT>
-    
-    <SELECT>
-    
-    delimiter ;
-    
-    COMMENT ON COLUMN TABLE_ORG.PROJECT_CODE IS '项目编码';
-    
-    COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
-    
-    </SELECT>
+## projectlombok
 
-1.  evil-fcitx
 
-2.  insert-translated-name
-    
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    </colgroup>
-    <tbody>
-    <tr>
-    <td class="org-left">; t</td>
-    <td class="org-left">toggle translate word</td>
-    </tr>
-    </tbody>
-    </table>
-3.  plantuml uml
-
-\\#+BEGIN\_SRC plantuml :file ime.svg
-
-a -> b
-
-\\#+END\_SRC
-
-1.  number-region
-2.  counsel-fzf-dir-function
-3.  custom-set-faces
-4.  some shortcuts
+## ejc-sql
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -155,6 +82,93 @@ a -> b
 <col  class="org-left" />
 </colgroup>
 <tbody>
+<tr>
+<td class="org-left">config</td>
+<td class="org-left">in the ../myconfig/db.el</td>
+</tr>
+
+
+<tr>
+<td class="org-left">M-x   ejc-connection</td>
+<td class="org-left">connect your setting</td>
+</tr>
+
+
+<tr>
+<td class="org-left">C-c  C-c</td>
+<td class="org-left">execute</td>
+</tr>
+</tbody>
+</table>
+
+    
+    <SELECT>
+    SELECT * FROM TABLE_ORG
+    </SELECT>
+    
+    <SELECT>
+    delimiter ;
+    COMMENT ON COLUMN TABLE_ORG.PROJECT_CODE IS '项目编码';
+    COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
+    </SELECT>
+
+
+## evil-fcitx
+
+
+## insert-translated-name
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">; t</td>
+<td class="org-left">toggle translate word</td>
+</tr>
+</tbody>
+</table>
+
+
+## plantuml uml
+
+    
+    #+BEGIN_SRC plantuml :file ime.svg
+    a -> b
+    #+END_SRC
+
+
+## number-region
+
+
+## counsel-fzf-dir-function
+
+
+## custom-set-faces
+
+
+## some shortcuts
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">key</td>
+<td class="org-left">function</td>
+</tr>
+
+
 <tr>
 <td class="org-left">f</td>
 <td class="org-left">evil-avy-goto-word-1</td>

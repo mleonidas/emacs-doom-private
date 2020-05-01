@@ -63,3 +63,4 @@
 
 ;;(package! evil-fcitx)
 ;;(package! insert-translated-name)
+;; (package! company-box :recipe (:host github :repo "yyoncho/company-box" :branch "size"))
