@@ -55,6 +55,12 @@ generate .project & .classpath files
 </colgroup>
 <tbody>
 <tr>
+<td class="org-left">KEY</td>
+<td class="org-left">FUNCTION</td>
+</tr>
+
+
+<tr>
 <td class="org-left">M-i</td>
 <td class="org-left">lsp-goto-implementation</td>
 </tr>
@@ -68,10 +74,7 @@ generate .project & .classpath files
 </table>
 
 
-## projectlombok
-
-
-## ejc-sql
+## dap-java
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -83,19 +86,85 @@ generate .project & .classpath files
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">config</td>
-<td class="org-left">in the ../myconfig/db.el</td>
+<td class="org-left">KEY</td>
+<td class="org-left">FUNCTION</td>
 </tr>
 
 
 <tr>
-<td class="org-left">M-x   ejc-connection</td>
-<td class="org-left">connect your setting</td>
+<td class="org-left">, n</td>
+<td class="org-left">dap-next</td>
 </tr>
 
 
 <tr>
-<td class="org-left">C-c  C-c</td>
+<td class="org-left">, b</td>
+<td class="org-left">dap-breakpoint-toggle</td>
+</tr>
+
+
+<tr>
+<td class="org-left">, c</td>
+<td class="org-left">dap-continue</td>
+</tr>
+
+
+<tr>
+<td class="org-left">, r</td>
+<td class="org-left">dap-eval-region</td>
+</tr>
+
+
+<tr>
+<td class="org-left">, a</td>
+<td class="org-left">dap-eval-thing-at-point</td>
+</tr>
+
+
+<tr>
+<td class="org-left">, d</td>
+<td class="org-left">dap-debug</td>
+</tr>
+
+
+<tr>
+<td class="org-left">, u</td>
+<td class="org-left">dap-ui-repl</td>
+</tr>
+</tbody>
+</table>
+
+
+## projectlombok
+
+
+## ejc-sql
+
+Config your db connection in the ../myconfig/db.el.
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">KEY</td>
+<td class="org-left">FUNCTION</td>
+</tr>
+
+
+<tr>
+<td class="org-left">M-x ejc-connection</td>
+<td class="org-left">ejc-connection</td>
+</tr>
+
+
+<tr>
+<td class="org-left">C-c C-c</td>
 <td class="org-left">execute</td>
 </tr>
 </tbody>
@@ -128,28 +197,132 @@ generate .project & .classpath files
 </colgroup>
 <tbody>
 <tr>
+<td class="org-left">KEY</td>
+<td class="org-left">FUNCTION</td>
+</tr>
+
+
+<tr>
 <td class="org-left">; t</td>
-<td class="org-left">toggle translate word</td>
+<td class="org-left">insert-translated-name-replace-with-camel</td>
 </tr>
 </tbody>
 </table>
 
+hello -> 你好
+
+你好 -> hello
+
 
 ## plantuml uml
 
-    
-    #+BEGIN_SRC plantuml :file ime.svg
+    +BEGIN_SRC plantuml :file ime.svg
     a -> b
     #+END_SRC
 
 
 ## number-region
 
+For insert the sequence.
+
+M-x number-region
+
+
+## book-mark
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">KEY</td>
+<td class="org-left">FUNCTION</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&rsquo; c</td>
+<td class="org-left">bm-toggle</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&rsquo; n</td>
+<td class="org-left">bm-next</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&rsquo; p</td>
+<td class="org-left">bm-previous</td>
+</tr>
+</tbody>
+</table>
+
+
+## string-inflection
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">KEY</td>
+<td class="org-left">FUNCTION</td>
+</tr>
+
+
+<tr>
+<td class="org-left">; r</td>
+<td class="org-left">string-inflection-java-style-cycle</td>
+</tr>
+</tbody>
+</table>
+
+emacsLisp => EMACS\_LISP => EmacsLisp => emacsLisp
+
 
 ## counsel-fzf-dir-function
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">KEY</td>
+<td class="org-left">FUNCTION</td>
+</tr>
+
+
+<tr>
+<td class="org-left">SPC z</td>
+<td class="org-left">counsel-fzf</td>
+</tr>
+</tbody>
+</table>
+
 
 ## custom-set-faces
+
+
+## font
+
+Sarasa-Gothic
 
 
 ## some shortcuts
@@ -164,8 +337,8 @@ generate .project & .classpath files
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">key</td>
-<td class="org-left">function</td>
+<td class="org-left">KEY</td>
+<td class="org-left">FUNCTION</td>
 </tr>
 
 
@@ -178,12 +351,6 @@ generate .project & .classpath files
 <tr>
 <td class="org-left">SPC j</td>
 <td class="org-left">evil-avy-goto-word-1</td>
-</tr>
-
-
-<tr>
-<td class="org-left">SPC z</td>
-<td class="org-left">counsel-fzf</td>
 </tr>
 
 
@@ -268,4 +435,10 @@ generate .project & .classpath files
 <https://github.com/emacs-lsp/lsp-java>
 
 <https://projectlombok.org/>
+
+<https://github.com/be5invis/Sarasa-Gothic>
+
+<https://github.com/akicho8/string-inflection>
+
+<https://github.com/joodland/bm>
 

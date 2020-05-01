@@ -46,15 +46,26 @@ generate .project & .classpath files
 mvn eclipse:eclipse
 #+END_SRC
 
-| M-i | lsp-goto-implementation  |
-| M-d | lsp-goto-type-definition |
+ | KEY | FUNCTION                 |
+ | M-i | lsp-goto-implementation  |
+ | M-d | lsp-goto-type-definition |
 
+** dap-java
+ | KEY | FUNCTION                |
+ | , n | dap-next                |
+ | , b | dap-breakpoint-toggle   |
+ | , c | dap-continue            |
+ | , r | dap-eval-region         |
+ | , a | dap-eval-thing-at-point |
+ | , d | dap-debug               |
+ | , u | dap-ui-repl             |
 ** projectlombok
 ** ejc-sql
+ Config your db connection in the ../myconfig/db.el.
 
- | config               | in the ../myconfig/db.el |
- | M-x   ejc-connection | connect your setting     |
- | C-c  C-c             | execute                  |
+ | KEY                | FUNCTION       |
+ | M-x ejc-connection | ejc-connection |
+ | C-c C-c            | execute        |
 
 #+BEGIN_SRC sql
 
@@ -71,23 +82,43 @@ COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
 
 ** evil-fcitx
 ** insert-translated-name
-   | ; t | toggle translate word |
+ | KEY | FUNCTION                                  |
+ | ; t | insert-translated-name-replace-with-camel |
+
+ hello -> 你好
+
+ 你好 -> hello
 ** plantuml uml
 #+BEGIN_SRC
-
-,#+BEGIN_SRC plantuml :file ime.svg
++BEGIN_SRC plantuml :file ime.svg
 a -> b
 ,#+END_SRC
-
 #+END_SRC
 ** number-region
+For insert the sequence.
+
+M-x number-region
+** book-mark
+ | KEY | FUNCTION    |
+ | ' c | bm-toggle   |
+ | ' n | bm-next     |
+ | ' p | bm-previous |
+** string-inflection
+ | KEY | FUNCTION                           |
+ | ; r | string-inflection-java-style-cycle |
+
+ emacsLisp => EMACS_LISP => EmacsLisp => emacsLisp
+
 ** counsel-fzf-dir-function
+ | KEY   | FUNCTION             |
+ | SPC z | counsel-fzf          |
 ** custom-set-faces
+** font
+Sarasa-Gothic
 ** some shortcuts
- | key   | function             |
+ | KEY   | FUNCTION             |
  | f     | evil-avy-goto-word-1 |
  | SPC j | evil-avy-goto-word-1 |
- | SPC z | counsel-fzf          |
  | SPC v | vterm                |
  | M-1   | neotree-find         |
  | M-j   | drag-stuff-down      |
@@ -112,3 +143,9 @@ a -> b
 [[https://github.com/emacs-lsp/lsp-java]]
 
 https://projectlombok.org/
+
+[[https://github.com/be5invis/Sarasa-Gothic]]
+
+[[https://github.com/akicho8/string-inflection]]
+
+[[https://github.com/joodland/bm]]
