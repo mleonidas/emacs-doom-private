@@ -18,6 +18,13 @@ Choose your operation system and install it.
     git clone https://github.com/vanniuner/emacs-doom-private.git ~/.doom.d/
 
 
+# PRIVATE SETTING
+
+Changing config in the package.el.
+
+    (add-to-list 'load-path "~/.doom.d/myconfig")
+
+
 # DOOM INSTALL
 
 Make sure that you have some setting in your terminal environment.
