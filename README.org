@@ -17,6 +17,13 @@ git clone https://github.com/hlissner/doom-emacs.git ~/.emacs.doom/
 #+BEGIN_SRC shell
 git clone https://github.com/vanniuner/emacs-doom-private.git ~/.doom.d/
 #+END_SRC
+* PRIVATE SETTING
+Changing config in the package.el.
+
+#+BEGIN_SRC lisp
+(add-to-list 'load-path "~/.doom.d/myconfig")
+#+END_SRC
+
 * DOOM INSTALL
 Make sure that you have some setting in your terminal environment.
 
