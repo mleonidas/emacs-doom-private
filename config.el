@@ -6,7 +6,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "LZJ"
+(setq user-full-name "HYX-TECH"
       user-mail-address "--")
 
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
@@ -243,7 +243,7 @@ d))))
 (setq org-image-actual-width nil)
 
 ;; uml plantuml.jar
-(setq org-plantuml-jar-path (expand-file-name "~/soft/jdk/plantuml.jar"))
+(setq org-plantuml-jar-path (expand-file-name "~/.doom.d/myconfig/plantuml.jar"))
 (org-babel-do-load-languages
   'org-babel-load-languages
   '((emacs-lisp . nil)
@@ -276,11 +276,6 @@ d))))
 (map! :ne "' c" 'bm-toggle)
 (map! :ne "' n" 'bm-next)
 (map! :ne "' p" 'bm-previous)
+
+(map! :ne "' p" 'bm-previous)
 (bm-bookmark-add nil nil t)
-
-(fset 'table-name-6-fix5-n
-   [?v ?e ?y ?: ?\C-m ?$ escape ?b ?v ?e ?p ?\C-c ?\C-c ?* ?n ?$ ?F ?= ?l ?v ?e ?y ?n ?w ?p ?\C-i ?\; ?w])
-
-(setq +doom-dashboard-banner-file (expand-file-name "banner/ue-colorful.png" doom-private-dir))
-
-
