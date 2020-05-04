@@ -13,8 +13,6 @@
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 
-(setq frame-title-format '("NEO-VIM-IED-FROM-1975"))
-
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -167,7 +165,8 @@
             (ejc-set-column-width-limit nil)
             ))
 (setq ejc-result-table-impl 'ejc-result-mode)
-(use-package! db)
+
+(use-package! db-custom)
 
 (use-package! string-inflection)
 (map! :ne "; r" 'string-inflection-java-style-cycle)
@@ -279,3 +278,4 @@ d))))
 
 (map! :ne "' p" 'bm-previous)
 (bm-bookmark-add nil nil t)
+

@@ -163,6 +163,7 @@
        ;;notmuch
        ;;(wanderlust +gmail)
 
+
        :app
        ;;calendar
        ;;irc               ; how neckbeards socialize
@@ -171,4 +172,8 @@
 
        :config
        ;;literate
-       (default +bindings +smartparens))
+       (default +bindings +smartparens)
+
+       :private
+       common
+       ou)
