@@ -13,41 +13,6 @@
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
-;; are the three important ones:
-;;
-;; + `doom-font'
-;; + `doom-variable-pitch-font'
-;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;;
-;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
-;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 17))
-(setq doom-font (font-spec :family "Sarasa Fixed CL" :size 20))
-
-(defun +my/better-font()
- (interactive)
- ;; english font
- (if (display-graphic-p)
-     (progn
-       (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" "Source Code Variable" 20)) ;; 11 13 17 19 23
-       ;; chinese font
-       (dolist (charset '(kana han symbol cjk-misc bopomofo))
-         (Set-fontset-font (frame-parameter nil 'font)
-                           charset
-                           (font-spec :family "Sarasa Mono SC" 20)))) ;; 14 16 20 22 28
-   ))
-
-(defun +my|init-font(frame)
- (with-selected-frame frame
-   (if (display-graphic-p)
-       (+my/better-font))))
-
-;; (if (and (fboundp 'daemonp) (daemonp))
-;;    (add-hook 'after-make-frame-functions #'+my|init-font)
-;;  (+my/better-font))
-
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -110,17 +75,6 @@
   (dap-mode t)
   (dap-ui-mode t))
 
-;; (use-package! company-box
-;;   :after company
-;;   :hook (company-mode . company-box-mode))
-;;(def-package! dap-mode
-;;  :after java-mode
-;;  :ensure t
-;;  :config
-;;  (dap-mode t)
-;;  (dap-ui-mode t))
-;; (map! :ne "SPC j" 'evil-avy-goto-char)
-
 (map! :ne "f" 'evil-avy-goto-word-1)
 (map! :ne "SPC j" 'evil-avy-goto-word-1)
 (map! :ne "SPC z" 'counsel-fzf)
@@ -134,7 +88,6 @@
 (map! :ne "; d" 'delete-other-windows)
 (map! :ne "; f" 'neotree-find)
 (map! :ne "; h" 'neotree-toggle)
-;; (map! :ne "; r" 'doom/reload)
 (map! :ne "; i" 'lsp-java-organize-imports)
 (map! :ne "; m" 'lsp-java-add-unimplemented-methods)
 (map! :ne ", f" 'lsp-format-buffer)
@@ -154,20 +107,6 @@
 (defalias 'forward-evil-word 'forward-evil-symbol)
 
 (use-package! evil-fcitx)
-(use-package! ejc-sql)
-(add-hook 'ejc-sql-minor-mode-hook
-          (lambda ()
-            (auto-complete-mode nil)))
-(add-hook 'ejc-sql-connected-hook
-          (lambda ()
-            (ejc-set-fetch-size 50)
-            (ejc-set-max-rows nil)
-            (ejc-set-column-width-limit nil)
-            ))
-(setq ejc-result-table-impl 'ejc-result-mode)
-
-(use-package! db-custom)
-
 (use-package! string-inflection)
 (map! :ne "; r" 'string-inflection-java-style-cycle)
 
@@ -250,7 +189,6 @@ d))))
     (plantuml . t)))
 (setq org-confirm-babel-evaluate nil)
 
-
 ;;number-region
 (defun number-region (start end)
   (interactive "r")
@@ -271,11 +209,7 @@ d))))
 (setq display-line-numbers-type 'relative)
 
 (use-package! bm)
-
 (map! :ne "' c" 'bm-toggle)
 (map! :ne "' n" 'bm-next)
 (map! :ne "' p" 'bm-previous)
-
-(map! :ne "' p" 'bm-previous)
 (bm-bookmark-add nil nil t)
-

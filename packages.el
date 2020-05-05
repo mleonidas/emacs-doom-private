@@ -55,7 +55,7 @@
 ;;(package! company-box)
 
 (add-to-list 'load-path "~/.doom.d/myconfig")
-(add-to-list 'load-path "~/.emacs.d/myconfig")
+;; (add-to-list 'load-path "~/.emacs.d/myconfig")
 ;; (package! evil-fcitx
 ;;  :recipe (:files ("~/.emacs.d/myconfig/evil-fcitx.el")))
 
