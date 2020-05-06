@@ -6,6 +6,10 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
+
+(set-default 'truncate-lines nil)
+(setq truncate-lines t)
+
 (setq user-full-name "HYX-TECH"
       user-mail-address "--")
 
