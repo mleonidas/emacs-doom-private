@@ -10,6 +10,8 @@
 (set-default 'truncate-lines nil)
 (setq truncate-lines t)
 
+;;(custom-set-faces '(org-table ((t (:foreground "#a9a1e1" :height 109 :family "")))))
+
 (setq user-full-name "HYX-TECH"
       user-mail-address "--")
 
@@ -63,8 +65,8 @@
 (setq lsp-java-maven-download-sources t)
 (setq lsp-java-configuration-maven-user-settings (expand-file-name "~/.m2/settings.xml"))
 
-(global-set-key (kbd "M-i") 'lsp-goto-implementation)
-(global-set-key (kbd "M-d") 'lsp-goto-type-definition)
+;; (global-set-key (kbd "M-i") 'lsp-goto-implementation)
+;; (global-set-key (kbd "M-d") 'lsp-goto-type-definition)
 (use-package! dap-java
   :defer 2)
 (use-package! dap-mode
