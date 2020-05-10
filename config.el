@@ -58,9 +58,11 @@
 ;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
 
 (setq lsp-enable-file-watchers nil)
+
 (setq lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
 (add-hook 'java-mode-hook #'lsp)
 
+(setq lsp-java-autobuild-enabled t)
 (setq lsp-java-import-maven-enabled t)
 (setq lsp-java-maven-download-sources t)
 (setq lsp-java-configuration-maven-user-settings (expand-file-name "~/.m2/settings.xml"))
@@ -91,9 +93,10 @@
 (map! :ne "; h" 'neotree-toggle)
 (map! :ne "; i" 'lsp-java-organize-imports)
 (map! :ne "; m" 'lsp-java-add-unimplemented-methods)
+(map! :ne "; o" 'projectile-dired)
+
+
 (map! :ne ", f" 'lsp-format-buffer)
-
-
 (map! :ne ", n" 'dap-next)
 (map! :ne ", b" 'dap-breakpoint-toggle)
 (map! :ne ", c" 'dap-continue)
