@@ -55,13 +55,14 @@
 ;;(package! company-box)
 
 (add-to-list 'load-path "~/.doom.d/myconfig")
+(add-to-list 'load-path "~/.doom.d/modules/private/ou")
 ;; (add-to-list 'load-path "~/.emacs.d/myconfig")
 ;; (package! evil-fcitx
-;;  :recipe (:files ("~/.emacs.d/myconfig/evil-fcitx.el")))
+;;  :recipe (:files ("~/.doom.d/myconfig/evil-fcitx.el")))
 
 ;; (package! insert-translated-name
-;;  :recipe (:files ("~/.emacs.d/myconfig/insert-translated-name.el")))
+;;  :recipe (:files ("~/.doom.d/myconfig/insert-translated-name.el")))
 
-;;(package! evil-fcitx)
+;; (package! evil-fcitx)
 ;;(package! insert-translated-name)
 ;; (package! company-box :recipe (:host github :repo "yyoncho/company-box" :branch "size"))

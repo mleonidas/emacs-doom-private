@@ -108,7 +108,7 @@
 ;; (global-set-key (kbd "<f7>") 'symbol-overlay-mode)
 
 ;; region forward
-(defalias 'forward-evil-word 'forward-evil-symbol)
+;; (defalias 'forward-evil-word 'forward-evil-symbol)
 
 (use-package! evil-fcitx)
 (use-package! string-inflection)
