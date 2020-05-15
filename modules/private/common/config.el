@@ -12,7 +12,11 @@
 ;;
 ;;
 ;; (custom-set-faces
-;;  '(font-lock-variable-name-face ((t (:foreground "#ffb86c")))))
+;;  '(lsp-face-semhl-field-static ((t (:foreground "#f1fa8c"))))
+;;  '(dap-ui-breakpoint-verified-fringe ((t (:background "#0000FF" :foreground "#00FF00"))))
+;;  '(dap-ui-pending-breakpoint-face ((t (:background "#8000ff" :foreground "#ffffff"))))
+;;  '(dap-ui-verified-breakpoint-face ((t (:background "#8000ff" :foreground "#ffffff"))))
+;;  '(font-lock-variable-name-face ((t (:foreground "#f1fa8c")))))
 ;;
 ;;
 ;; (setq doom-font (font-spec :family "Sarasa Fixed SC" :size 20))

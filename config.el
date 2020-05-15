@@ -105,6 +105,7 @@
 (map! :ne ", a" 'dap-eval-thing-at-point)
 (map! :ne ", d" 'dap-debug)
 (map! :ne ", u" 'dap-ui-repl)
+(map! :ne ", t" 'dap-breakpoint-condition)
 ;;
 ;; (global-set-key (kbd "<f7>") 'symbol-overlay-mode)
 
