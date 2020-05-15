@@ -77,6 +77,7 @@
   :config
   (dap-mode t)
   (dap-ui-mode t))
+(setq dap-output-window-max-height 20)
 
 (map! :ne "f" 'evil-avy-goto-word-1)
 (map! :ne "SPC j" 'evil-avy-goto-word-1)
@@ -94,7 +95,7 @@
 (map! :ne "; i" 'lsp-java-organize-imports)
 (map! :ne "; m" 'lsp-java-add-unimplemented-methods)
 (map! :ne "; o" 'projectile-dired)
-
+(map! :ne "; g" 'dap-go-to-output-buffer)
 
 (map! :ne ", f" 'lsp-format-buffer)
 (map! :ne ", n" 'dap-next)
@@ -137,6 +138,7 @@
  ;; '(doom-modeline-evil-normal-state ((t (:foreground "#FFFFFF" :background "#2F4F4F"))))
  '(show-paren-match ((t (:background "#6272a4" :foreground "#00000")))))
 
+(setq doom-modeline-modal-icon nil)
 (setq evil-emacs-state-tag "EMACS")
 (setq evil-hybrid-state-tag "HYBRID")
 (setq evil-insert-state-tag "INSERT")
@@ -217,3 +219,8 @@ d))))
 (map! :ne "' n" 'bm-next)
 (map! :ne "' p" 'bm-previous)
 (bm-bookmark-add nil nil t)
+
+
+;; skip localAreaNetwork(Lan) and loacalhost
+(setq url-proxy-services
+      '(("no_proxy" . "^\\(localhost\\|10.*\\|192.*\\)")))
