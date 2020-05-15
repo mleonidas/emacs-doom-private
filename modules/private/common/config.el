@@ -15,6 +15,8 @@
 ;;  '(font-lock-variable-name-face ((t (:foreground "#ffb86c")))))
 ;;
 ;;
+;; (setq doom-font (font-spec :family "Sarasa Fixed SC" :size 20))
+;;
 ;; ~/.emacs.d/modules/ui/doom-dashboard/config.el
 ;;(defun doom-dashboard-widget-banner ()
 ;;  (let ((point (point)))
