@@ -10,6 +10,11 @@
 ;; (global-set-key (kbd "M-i") 'lsp-goto-implementation)
 ;; (global-set-key (kbd "M-d") 'lsp-goto-type-definition)
 ;;
+;;
+;; (custom-set-faces
+;;  '(font-lock-variable-name-face ((t (:foreground "#ffb86c")))))
+;;
+;;
 ;; ~/.emacs.d/modules/ui/doom-dashboard/config.el
 ;;(defun doom-dashboard-widget-banner ()
 ;;  (let ((point (point)))
