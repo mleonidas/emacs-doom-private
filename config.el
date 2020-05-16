@@ -76,6 +76,7 @@
   :ensure t :after lsp-mode
   :config
   (dap-mode t)
+  (set-company-backend! 'dap-ui-repl-mode 'company-dap-ui-repl)
   (dap-ui-mode t))
 (setq dap-output-window-max-height 20)
 
