@@ -188,8 +188,13 @@ d))))
   (iimage-mode))
 (setq org-image-actual-width nil)
 
-;; uml plantuml.jar
-(setq org-plantuml-jar-path (expand-file-name "~/.doom.d/myconfig/plantuml.jar"))
+(setq plantuml-default-exec-mode
+      (cond ((executable-find "plantuml") 'executable)))
+(setq plantuml-jar-path
+      (expand-file-name "~/.doom.d/myconfig/plantuml.jar"))
+(setq org-plantuml-jar-path
+      (expand-file-name "~/.doom.d/myconfig/plantuml.jar"))
+
 (org-babel-do-load-languages
   'org-babel-load-languages
   '((emacs-lisp . nil)
@@ -225,4 +230,4 @@ d))))
 
 ;; skip localAreaNetwork(Lan) and loacalhost
 (setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10.*\\|192.*\\)")))
+      '(("no_proxy" . "^\\(localhost\\|10.*\\|192.*\\|*.qq.com\\)")))
