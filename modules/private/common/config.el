@@ -21,7 +21,12 @@
 ;;
 ;; (setq doom-font (font-spec :family "Sarasa Fixed SC" :size 20))
 ;;
+;; (setq org-agenda-files (list "1.org" "2.org"))
 ;; ~/.emacs.d/modules/ui/doom-dashboard/config.el
+;;
+;; (defvar +doom-dashboard-name "*dashboard*"
+;;   "The name to use for the dashboard buffer.")
+;;
 ;; (defun doom-dashboard-widget-banner ()
 ;;  (let ((point (point)))
 ;;    (mapc (lambda (line)
