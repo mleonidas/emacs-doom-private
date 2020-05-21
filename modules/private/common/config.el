@@ -13,10 +13,11 @@
 ;;
 ;; (custom-set-faces
 ;;  '(lsp-face-semhl-field-static ((t (:foreground "#f1fa8c"))))
-;;  '(dap-ui-breakpoint-verified-fringe ((t (:background "#0000FF" :foreground "#00FF00"))))
-;;  '(dap-ui-pending-breakpoint-face ((t (:background "#8000ff" :foreground "#ffffff"))))
-;;  '(dap-ui-verified-breakpoint-face ((t (:background "#8000ff" :foreground "#ffffff"))))
-;;  '(font-lock-variable-name-face ((t (:foreground "#f1fa8c")))))
+;;  '(dap-ui-breakpoint-verified-fringe ((t (:background "#8000ff" :foreground "#ffffff"))))
+;;  '(dap-ui-pending-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
+;;  '(dap-ui-verified-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
+;;  '(lsp-face-highlight-write ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2" ))))
+;;  '(lsp-face-highlight-read ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2" ))))
 ;;
 ;;
 ;; (setq doom-font (font-spec :family "Sarasa Fixed SC" :size 20))
