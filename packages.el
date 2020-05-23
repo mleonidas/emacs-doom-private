@@ -52,7 +52,6 @@
 (package! lsp-java)
 (package! dap-mode)
 (package! ejc-sql)
-;;(package! company-box)
 
 (add-to-list 'load-path "~/.doom.d/myconfig")
 (add-to-list 'load-path "~/.doom.d/modules/private/ou")
