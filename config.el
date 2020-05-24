@@ -25,7 +25,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+;; (setq display-line-numbers-type t)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -46,13 +46,19 @@
 ;;
 ;; (load-theme 'doom-gruvbox t)
 
+
+(use-package yasnippet :config (yas-global-mode))
+(use-package lsp-mode :hook ((lsp-mode . lsp-enable-which-key-integration))
+  :config (setq lsp-completion-enable-additional-text-edit nil))
 (use-package! lsp-java
   :config
+  (add-hook 'java-mode-hook 'lsp)
   (setq lombok-jar-path (expand-file-name "~/.doom.d/myconfig/lombok.jar"))
   (setq lsp-java-vmargs `(
                           , (concat "-javaagent:" lombok-jar-path)
                           , (concat "-Xbootclasspath/a:" lombok-jar-path)
                             )))
+;; (setq company-require-match t)
 ;; to enable the lenses
 ;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
 ;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
@@ -62,11 +68,19 @@
 (setq lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
 (add-hook 'java-mode-hook #'lsp)
 
+(setq lsp-java-content-provider-preferred "fernflower")
+(setq lsp-java-completion-guess-method-arguments t)
+(setq lsp-java-format-on-type-enabled t)
 (setq lsp-java-autobuild-enabled t)
 (setq lsp-java-import-maven-enabled t)
 (setq lsp-java-maven-download-sources t)
 (setq lsp-java-configuration-maven-user-settings (expand-file-name "~/.m2/settings.xml"))
 
+(setq doom-modeline-buffer-file-name-style 'truncate-with-project)
+(setq lsp-prefer-capf t)
+(setq lsp-completion-enable-additional-text-edit nil)
+(setq company-tooltip-limit 12)
+(setq company-tooltip-offset-display 'lines)
 ;; (global-set-key (kbd "M-i") 'lsp-goto-implementation)
 ;; (global-set-key (kbd "M-d") 'lsp-goto-type-definition)
 (use-package! dap-java
