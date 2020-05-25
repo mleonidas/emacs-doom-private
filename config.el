@@ -9,7 +9,7 @@
 
 (set-default 'truncate-lines nil)
 (setq truncate-lines t)
-
+(setq doom-modeline-buffer-file-name-style 'truncate-with-project)
 ;;(custom-set-faces '(org-table ((t (:foreground "#a9a1e1" :height 109 :family "")))))
 
 (setq user-full-name "HYX-TECH"
@@ -48,8 +48,9 @@
 
 
 (use-package yasnippet :config (yas-global-mode))
-(use-package lsp-mode :hook ((lsp-mode . lsp-enable-which-key-integration))
-  :config (setq lsp-completion-enable-additional-text-edit nil))
+(use-package lsp-mode
+  :hook ((lsp-mode . lsp-enable-which-key-integration))
+  :custom (setq lsp-completion-enable-additional-text-edit nil))
 (use-package! lsp-java
   :config
   (add-hook 'java-mode-hook 'lsp)
@@ -68,7 +69,8 @@
 (setq lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
 (add-hook 'java-mode-hook #'lsp)
 
-(setq lsp-java-content-provider-preferred "fernflower")
+;; (setq lsp-java-content-provider-preferred "fernflower")
+;; lsp-completion
 (setq lsp-java-completion-guess-method-arguments t)
 (setq lsp-java-format-on-type-enabled t)
 (setq lsp-java-autobuild-enabled t)
@@ -76,9 +78,8 @@
 (setq lsp-java-maven-download-sources t)
 (setq lsp-java-configuration-maven-user-settings (expand-file-name "~/.m2/settings.xml"))
 
-(setq doom-modeline-buffer-file-name-style 'truncate-with-project)
 (setq lsp-prefer-capf t)
-(setq lsp-completion-enable-additional-text-edit nil)
+;; (setq lsp-completion-enable-additional-text-edit t)
 (setq company-tooltip-limit 12)
 (setq company-tooltip-offset-display 'lines)
 ;; (global-set-key (kbd "M-i") 'lsp-goto-implementation)
