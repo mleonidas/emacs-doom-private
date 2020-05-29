@@ -245,7 +245,7 @@ d))))
 
 ;; skip localAreaNetwork(Lan) and loacalhost
 (setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10.*\\|192.*\\|*.qq.com\\)")))
+      '(("no_proxy" . "^\\(localhost\\|10.*\\|192.*\\|*.oak.net.cn\\)")))
 
 (setq company-box-doc-enable nil)
 
@@ -260,3 +260,5 @@ d))))
                        (lambda ()
                          (message "Garbage Collector has run for %.06fsec"
                                   (k-time (garbage-collect))))))
+
+(setq ejc-result-table-impl 'ejc-result-mode)
