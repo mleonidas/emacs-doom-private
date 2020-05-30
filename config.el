@@ -257,8 +257,7 @@ d))))
 
 (defvar k-gc-timer
   (run-with-idle-timer 15 t
-                       (lambda ()
-                         ((k-time (garbage-collect))))))
+                       'garbage-collect))
 
 (setq ejc-result-table-impl 'ejc-result-mode)
 (setq vterm-kill-buffer-on-exit t)
