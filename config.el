@@ -110,8 +110,8 @@
 (map! :ne "; h" 'neotree-toggle)
 (map! :ne "; i" 'lsp-java-organize-imports)
 (map! :ne "; m" 'lsp-java-add-unimplemented-methods)
-(map! :ne "; o" 'projectile-dired)
-(map! :ne "; g" 'dap-go-to-output-buffer)
+(map! :ne "; o" 'projectile-run-vterm)
+(map! :ne "; g" 'ejc-show-last-result)
 
 (map! :ne ", f" 'lsp-format-buffer)
 (map! :ne ", n" 'dap-next)
@@ -258,7 +258,7 @@ d))))
 (defvar k-gc-timer
   (run-with-idle-timer 15 t
                        (lambda ()
-                         (message "Garbage Collector has run for %.06fsec"
-                                  (k-time (garbage-collect))))))
+                         ((k-time (garbage-collect))))))
 
 (setq ejc-result-table-impl 'ejc-result-mode)
+(setq vterm-kill-buffer-on-exit t)
