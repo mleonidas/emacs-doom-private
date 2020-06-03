@@ -69,8 +69,8 @@
 (setq lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
 (add-hook 'java-mode-hook #'lsp)
 
-;; (setq lsp-java-content-provider-preferred "fernflower")
 ;; lsp-completion
+;; (setq lsp-java-content-provider-preferred "fernflower")
 (setq lsp-java-completion-guess-method-arguments t)
 (setq lsp-java-format-on-type-enabled t)
 (setq lsp-java-autobuild-enabled t)
@@ -242,10 +242,8 @@ d))))
 (map! :ne "' p" 'bm-previous)
 (bm-bookmark-add nil nil t)
 
-
 ;; skip localAreaNetwork(Lan) and loacalhost
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10.*\\|192.*\\|*.oak.net.cn\\)")))
+(setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\|192.*\\|*.qq.com\\)")))
 
 (setq company-box-doc-enable nil)
 
@@ -260,4 +258,13 @@ d))))
                        'garbage-collect))
 
 (setq ejc-result-table-impl 'ejc-result-mode)
+
 (setq vterm-kill-buffer-on-exit t)
+
+(use-package mu4e)
+(setq message-send-mail-function 'message-send-mail-with-sendmail)
+(setq
+  mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
+  mu4e-update-interval 60
+  mu4e-headers-auto-update t)
+(setq mu4e-maildir (expand-file-name "~/Maildir"))
