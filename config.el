@@ -102,6 +102,7 @@
 (map! :ne ";-1" 'neotree-find)
 (map! :ne "M-j" 'drag-stuff-down)
 (map! :ne "M-k" 'drag-stuff-up)
+;; (map! :ie "C-h" 'c-hungry-backspace)
 (map! :ne "; w" 'save-buffer)
 (map! :ne "; b" 'switch-to-buffer)
 (map! :ne "; e" 'ace-window)
@@ -125,6 +126,20 @@
 (map! :ne ", t" 'dap-breakpoint-condition)
 ;;
 ;; (global-set-key (kbd "<f7>") 'symbol-overlay-mode)
+;;  ("C-<backspace>" . vterm-send-C-h)
+;; (general-def 'vterm--self-insert vterm-mode-map "C-h" 'vterm-send-C-h)
+;; (general-def '(vterm-mode) (vterm-mode-map "M-[" 'vterm-send-C-h))
+
+;; (add-hook 'evil-insert-state-entry-hook
+;;     (lambda () (interactive) (define-key evil-insert-state-map (kbd "M-[") 'c-hungry-backspace)))
+(general-def 'insert "C-h" 'c-hungry-backspace)
+(general-def 'insert vterm-mode-map "C-h" 'vterm-send-C-h)
+
+(use-package vterm
+    :ensure t)
+(define-key vterm-mode-map (kbd "M-[")
+    (lambda () (interactive) (vterm-send-key (kbd "C-h"))))
+(define-key evil-insert-state-map (kbd "C-h") 'c-hungry-backspace)
 
 ;; region forward
 ;; (defalias 'forward-evil-word 'forward-evil-symbol)
