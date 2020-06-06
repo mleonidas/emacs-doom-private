@@ -99,19 +99,20 @@
 (map! :ne "SPC j" 'evil-avy-goto-word-1)
 (map! :ne "SPC z" 'counsel-fzf)
 (map! :ne "SPC v" 'vterm)
-(map! :ne "M-1" 'neotree-find)
+(map! :ne ";-1" 'neotree-find)
 (map! :ne "M-j" 'drag-stuff-down)
 (map! :ne "M-k" 'drag-stuff-up)
 (map! :ne "; w" 'save-buffer)
 (map! :ne "; b" 'switch-to-buffer)
 (map! :ne "; e" 'ace-window)
-(map! :ne "; d" 'delete-other-windows)
+(map! :ne "; d" 'zygospore-toggle-delete-other-windows)
 (map! :ne "; f" 'neotree-find)
 (map! :ne "; h" 'neotree-toggle)
 (map! :ne "; i" 'lsp-java-organize-imports)
 (map! :ne "; m" 'lsp-java-add-unimplemented-methods)
 (map! :ne "; o" 'projectile-run-vterm)
 (map! :ne "; g" 'ejc-show-last-result)
+(map! :ne "; a" 'ranger)
 
 (map! :ne ", f" 'lsp-format-buffer)
 (map! :ne ", n" 'dap-next)
@@ -243,7 +244,7 @@ d))))
 (bm-bookmark-add nil nil t)
 
 ;; skip localAreaNetwork(Lan) and loacalhost
-(setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\|192.*\\|*.qq.com\\)")))
+(setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|172.*\\|10.*\\|192.*\\|*.qq.com\\)")))
 
 (setq company-box-doc-enable nil)
 
