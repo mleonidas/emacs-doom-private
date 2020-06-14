@@ -12,7 +12,7 @@
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
 ;;(custom-set-faces '(org-table ((t (:foreground "#a9a1e1" :height 109 :family "")))))
 
-(setq user-full-name "HYX-TECH"
+(setq user-full-name "--"
       user-mail-address "--")
 
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
@@ -111,7 +111,7 @@
 (map! :ne "; h" 'neotree-toggle)
 (map! :ne "; i" 'lsp-java-organize-imports)
 (map! :ne "; m" 'lsp-java-add-unimplemented-methods)
-(map! :ne "; o" 'projectile-run-vterm)
+(map! :ne "; o" 'projectile-dired)
 (map! :ne "; g" 'ejc-show-last-result)
 (map! :ne "; a" 'ranger)
 
@@ -134,12 +134,13 @@
 ;;     (lambda () (interactive) (define-key evil-insert-state-map (kbd "M-[") 'c-hungry-backspace)))
 (general-def 'insert "C-h" 'c-hungry-backspace)
 (general-def 'insert vterm-mode-map "C-h" 'vterm-send-C-h)
+(define-key global-map "\C-h" 'backward-delete-char-untabify)
 
-(use-package vterm
-    :ensure t)
-(define-key vterm-mode-map (kbd "M-[")
-    (lambda () (interactive) (vterm-send-key (kbd "C-h"))))
-(define-key evil-insert-state-map (kbd "C-h") 'c-hungry-backspace)
+;; (use-package vterm
+;;     :ensure t)
+;; (define-key vterm-mode-map (kbd "M-[")
+;;     (lambda () (interactive) (vterm-send-key (kbd "C-h"))))
+;; (define-key evil-insert-state-map (kbd "C-h") 'c-hungry-backspace)
 
 ;; region forward
 ;; (defalias 'forward-evil-word 'forward-evil-symbol)
@@ -277,10 +278,33 @@ d))))
 
 (setq vterm-kill-buffer-on-exit t)
 
-(use-package mu4e)
+(use-package! mu4e)
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 (setq
   mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
   mu4e-update-interval 60
   mu4e-headers-auto-update t)
 (setq mu4e-maildir (expand-file-name "~/Maildir"))
+
+;; (use-package company-tabnine :ensure t)
+;; (add-to-list 'company-backends #'company-tabnine)
+;; ;; workaround for company-transformers
+;; (setq company-tabnine--disable-next-transform nil)
+;; (defun my-company--transform-candidates (func &rest args)
+;;   (if (not company-tabnine--disable-next-transform)
+;;       (apply func args)
+;;     (setq company-tabnine--disable-next-transform nil)
+;;     (car args)))
+
+;; (defun my-company-tabnine (func &rest args)
+;;   (when (eq (car args) 'candidates)
+;;     (setq company-tabnine--disable-next-transform t))
+;;   (apply func args))
+
+;; (advice-add #'company--transform-candidates :around #'my-company--transform-candidates)
+;; (advice-add #'company-tabnine :around #'my-company-tabnine)
+
+ (setq browse-url-browser-function 'w3m-browse-url)
+ (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+ ;; optional keyboard short-cut
+ (global-set-key "\C-xm" 'browse-url-at-point)
