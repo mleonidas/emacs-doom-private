@@ -99,6 +99,10 @@
 (map! :ne "SPC j" 'evil-avy-goto-word-1)
 (map! :ne "SPC z" 'counsel-fzf)
 (map! :ne "SPC v" 'vterm)
+(map! :ne "SPC l" 'evil-window-right)
+(map! :ne "SPC r" 'evil-window-left)
+(map! :ne "SPC j" 'evil-window-down)
+(map! :ne "SPC k" 'evil-window-up)
 (map! :ne ";-1" 'neotree-find)
 (map! :ne "M-j" 'drag-stuff-down)
 (map! :ne "M-k" 'drag-stuff-up)
@@ -114,6 +118,7 @@
 (map! :ne "; o" 'projectile-dired)
 (map! :ne "; g" 'ejc-show-last-result)
 (map! :ne "; a" 'ranger)
+(map! :ne "; s" 'lsp-workspace-restart)
 
 (map! :ne ", f" 'lsp-format-buffer)
 (map! :ne ", n" 'dap-next)
@@ -308,3 +313,6 @@ d))))
  (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
  ;; optional keyboard short-cut
  (global-set-key "\C-xm" 'browse-url-at-point)
+
+(setq tao-theme-use-boxes nil)
+(setq neo-window-fixed-size nil)

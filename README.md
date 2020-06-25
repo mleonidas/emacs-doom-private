@@ -10,7 +10,7 @@ Choose your operation system and install it.
 
 # CLONE DOOM
 
-    git clone https://github.com/hlissner/doom-emacs.git ~/.emacs.doom/
+    git clone https://github.com/hlissner/doom-emacs.git ~/.emacs.d/
 
 
 # CLONE REPOSITORY
