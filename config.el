@@ -316,3 +316,7 @@ d))))
 
 (setq tao-theme-use-boxes nil)
 (setq neo-window-fixed-size nil)
+
+;; (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|127.*\\|192.*\\|*.oak.net.cn\\|*.qq.com\\)")))
+                           ;; ("http" . "my-corp-proxy:8080")
+                           ;; ("https" . "my-port-proxy:8080")))
