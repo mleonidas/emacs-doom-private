@@ -3,7 +3,7 @@
 ;; (use-package! dap-mode)
 (use-package! ejc-sql)
 ;; (use-package! java-custom)
-(use-package! db)
+(use-package! db-work)
 
 (load-theme 'doom-vibrant t)
 
@@ -21,6 +21,8 @@
 ;;
 ;;
 (setq doom-font (font-spec :family "Sarasa Fixed SC" :size 20))
+;; (setq doom-font (font-spec :family "Operator Mono Light" :size 20))
+;; Operator Mono
 ;;
 ;; (setq org-agenda-files (list "1.org" "2.org"))
 ;; ~/.emacs.d/modules/ui/doom-dashboard/config.el
