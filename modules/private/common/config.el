@@ -5,7 +5,7 @@
 ;; (use-package! java-custom)
 ;; (use-package! db)
 
-;; (load-theme 'doom-dracula t)
+(load-theme 'doom-vibrant t)
 
 ;; (global-set-key (kbd "M-i") 'lsp-goto-implementation)
 ;; (global-set-key (kbd "M-d") 'lsp-goto-type-definition)
@@ -20,7 +20,7 @@
 ;;  '(lsp-face-highlight-read ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2" ))))
 ;;
 ;;
-;; (setq doom-font (font-spec :family "Sarasa Fixed SC" :size 20))
+(setq doom-font (font-spec :family "Sarasa Fixed SC" :size 20))
 ;;
 ;; (setq org-agenda-files (list "1.org" "2.org"))
 ;; ~/.emacs.d/modules/ui/doom-dashboard/config.el

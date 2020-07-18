@@ -50,7 +50,8 @@
 (use-package yasnippet :config (yas-global-mode))
 (use-package lsp-mode
   :hook ((lsp-mode . lsp-enable-which-key-integration))
-  :custom (setq lsp-completion-enable-additional-text-edit nil))
+  ;; :custom (setq lsp-completion-enable-additional-text-edit nil)
+ )
 (use-package! lsp-java
   :config
   (add-hook 'java-mode-hook 'lsp)
@@ -119,6 +120,7 @@
 (map! :ne "; g" 'ejc-show-last-result)
 (map! :ne "; a" 'ranger)
 (map! :ne "; s" 'lsp-workspace-restart)
+(map! :ne "M f" 'lsp-find-definition)
 
 (map! :ne ", f" 'lsp-format-buffer)
 (map! :ne ", n" 'dap-next)
@@ -137,12 +139,20 @@
 
 ;; (add-hook 'evil-insert-state-entry-hook
 ;;     (lambda () (interactive) (define-key evil-insert-state-map (kbd "M-[") 'c-hungry-backspace)))
-(general-def 'insert "C-h" 'c-hungry-backspace)
+;; (general-def 'insert "C-h" 'c-hungry-backspace)
+(use-package vterm
+    :ensure t)
 (general-def 'insert vterm-mode-map "C-h" 'vterm-send-C-h)
 (define-key global-map "\C-h" 'backward-delete-char-untabify)
+(define-key global-map "\C-j" 'evil-scroll-down)
+(define-key global-map "\C-k" 'evil-scroll-up)
+(define-key global-map "\M-f" 'lsp-find-definition)
 
-;; (use-package vterm
-;;     :ensure t)
+(define-key vterm-mode-map (kbd "<C-backspace>")
+    (lambda () (interactive) (vterm-send-key (kbd "C-w"))))
+;;(setq vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=no")
+;;(use-package vterm
+;; :load-path  "~/soft/emacs-libvterm/")
 ;; (define-key vterm-mode-map (kbd "M-[")
 ;;     (lambda () (interactive) (vterm-send-key (kbd "C-h"))))
 ;; (define-key evil-insert-state-map (kbd "C-h") 'c-hungry-backspace)
@@ -155,17 +165,13 @@
 (map! :ne "; r" 'string-inflection-java-style-cycle)
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-box-scrollbar ((t (:background "#5B5B5B" :foreground "#000000"))))
- '(company-tooltip ((t (:background "#44475a" :foreground "#E1FFFF"))))
- '(company-tooltip-annotation ((t (:foreground "#FFA500"))))
- '(company-tooltip-annotation-selection ((t (:foreground "#2F4F4F"))))
- '(company-tooltip-common ((t (:foreground "#E6E6FA"))))
- '(company-tooltip-common-selection ((t (:foreground "#800000"))))
- '(company-tooltip-selection ((t (:background "#FFE66F" :foreground "#000000"))))
+ ;; '(company-box-scrollbar ((t (:background "#5B5B5B" :foreground "#000000"))))
+ ;; '(company-tooltip ((t (:background "#44475a" :foreground "#E1FFFF"))))
+ ;; '(company-tooltip-annotation ((t (:foreground "#FFA500"))))
+ ;; '(company-tooltip-annotation-selection ((t (:foreground "#2F4F4F"))))
+ ;; '(company-tooltip-common ((t (:foreground "#E6E6FA"))))
+ ;; '(company-tooltip-common-selection ((t (:foreground "#800000"))))
+ ;; '(company-tooltip-selection ((t (:background "#FFE66F" :foreground "#000000"))))
  '(linum ((t (:inherit (shadow default) :foreground "DimGray" :background "dark"))))
  '(linum-highlight-face ((t (:background "#282828" :foreground "#EEEE00"))))
  '(lsp-face-semhl-field ((t (:foreground "#6272a4"))))
@@ -173,8 +179,6 @@
  '(lsp-face-semhl-variable-local ((t (:foreground "#6272a4"))))
  '(powerline-active0 ((t (:foreground "#f8f8f2"))))
  '(powerline-active1 ((t (:foreground "#FFDEAD"))))
- ;; '(doom-modeline-evil-insert-state ((t (:foreground "#B22222" :background "#FFB90F"))))
- ;; '(doom-modeline-evil-normal-state ((t (:foreground "#FFFFFF" :background "#2F4F4F"))))
  '(show-paren-match ((t (:background "#6272a4" :foreground "#00000")))))
 
 (setq doom-modeline-modal-icon nil)
@@ -283,13 +287,13 @@ d))))
 
 (setq vterm-kill-buffer-on-exit t)
 
-(use-package! mu4e)
-(setq message-send-mail-function 'message-send-mail-with-sendmail)
-(setq
-  mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
-  mu4e-update-interval 60
-  mu4e-headers-auto-update t)
-(setq mu4e-maildir (expand-file-name "~/Maildir"))
+;; (use-package! mu4e)
+;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
+;; (setq
+;;   mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
+;;   mu4e-update-interval 60
+;;   mu4e-headers-auto-update t)
+;; (setq mu4e-maildir (expand-file-name "~/Maildir"))
 
 ;; (use-package company-tabnine :ensure t)
 ;; (add-to-list 'company-backends #'company-tabnine)
@@ -320,3 +324,9 @@ d))))
 ;; (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|127.*\\|192.*\\|*.oak.net.cn\\|*.qq.com\\)")))
                            ;; ("http" . "my-corp-proxy:8080")
                            ;; ("https" . "my-port-proxy:8080")))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(vterm zygospore dap-mode)))
