@@ -10,6 +10,7 @@
 (set-default 'truncate-lines nil)
 (setq truncate-lines t)
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
+(setq undo-tree-auto-save-history t)
 ;;(custom-set-faces '(org-table ((t (:foreground "#a9a1e1" :height 109 :family "")))))
 
 (setq user-full-name "--"
@@ -164,7 +165,7 @@
 ;; (define-key evil-insert-state-map (kbd "C-h") 'c-hungry-backspace)
 
 ;; region forward
-;; (defalias 'forward-evil-word 'forward-evil-symbol)
+(defalias 'forward-evil-word 'forward-evil-symbol)
 
 (use-package! evil-fcitx)
 (use-package! string-inflection)
@@ -290,13 +291,6 @@ d))))
 
 (setq vterm-kill-buffer-on-exit t)
 
-;; (use-package! mu4e)
-;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
-;; (setq
-;;   mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
-;;   mu4e-update-interval 60
-;;   mu4e-headers-auto-update t)
-;; (setq mu4e-maildir (expand-file-name "~/Maildir"))
 
 ;; (use-package company-tabnine :ensure t)
 ;; (add-to-list 'company-backends #'company-tabnine)
