@@ -10,7 +10,9 @@
 (set-default 'truncate-lines nil)
 (setq truncate-lines t)
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
-(setq undo-tree-auto-save-history t)
+(setq undo-tree-auto-save-history t
+      undo-tree-history-directory-alist `(("." .,
+                                          (expand-file-name "~/.emacs.d/undo-tree-hist/"))))
 ;;(custom-set-faces '(org-table ((t (:foreground "#a9a1e1" :height 109 :family "")))))
 
 (setq user-full-name "--"
