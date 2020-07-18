@@ -147,6 +147,12 @@
 (define-key global-map "\C-j" 'evil-scroll-down)
 (define-key global-map "\C-k" 'evil-scroll-up)
 (define-key global-map "\M-f" 'lsp-find-definition)
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-insert-state-map (kbd "C-u")
+  (lambda ()
+    (interactive)
+    (evil-delete (point-at-bol) (point))))
 
 (define-key vterm-mode-map (kbd "<C-backspace>")
     (lambda () (interactive) (vterm-send-key (kbd "C-w"))))
@@ -165,13 +171,10 @@
 (map! :ne "; r" 'string-inflection-java-style-cycle)
 
 (custom-set-faces
- ;; '(company-box-scrollbar ((t (:background "#5B5B5B" :foreground "#000000"))))
- ;; '(company-tooltip ((t (:background "#44475a" :foreground "#E1FFFF"))))
- ;; '(company-tooltip-annotation ((t (:foreground "#FFA500"))))
- ;; '(company-tooltip-annotation-selection ((t (:foreground "#2F4F4F"))))
- ;; '(company-tooltip-common ((t (:foreground "#E6E6FA"))))
- ;; '(company-tooltip-common-selection ((t (:foreground "#800000"))))
- ;; '(company-tooltip-selection ((t (:background "#FFE66F" :foreground "#000000"))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(linum ((t (:inherit (shadow default) :foreground "DimGray" :background "dark"))))
  '(linum-highlight-face ((t (:background "#282828" :foreground "#EEEE00"))))
  '(lsp-face-semhl-field ((t (:foreground "#6272a4"))))
@@ -329,4 +332,7 @@ d))))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(vterm zygospore dap-mode)))
+ '(package-selected-packages (quote (ranger vterm zygospore dap-mode))))
+
+
+
