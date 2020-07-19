@@ -7,20 +7,20 @@
 
 (load-theme 'doom-vibrant t)
 
-;; (global-set-key (kbd "M-i") 'lsp-goto-implementation)
-;; (global-set-key (kbd "M-d") 'lsp-goto-type-definition)
+(global-set-key (kbd "M-i") 'lsp-goto-implementation)
+(global-set-key (kbd "M-d") 'lsp-goto-type-definition)
 ;;
 ;;
-;; (custom-set-faces
-;;  '(lsp-face-semhl-field-static ((t (:foreground "#f1fa8c"))))
-;;  '(dap-ui-breakpoint-verified-fringe ((t (:background "#8000ff" :foreground "#ffffff"))))
-;;  '(dap-ui-pending-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
-;;  '(dap-ui-verified-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
-;;  '(lsp-face-highlight-write ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2" ))))
-;;  '(lsp-face-highlight-read ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2" ))))
+(custom-set-faces
+ '(lsp-face-semhl-field-static ((t (:foreground "#f1fa8c"))))
+ '(dap-ui-breakpoint-verified-fringe ((t (:background "#8000ff" :foreground "#ffffff"))))
+ '(dap-ui-pending-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
+ '(dap-ui-verified-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
+ '(lsp-face-highlight-write ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2" ))))
+ '(lsp-face-highlight-read ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2" )))))
 ;;
 ;;
-(setq doom-font (font-spec :family "Sarasa Fixed SC" :size 20))
+(setq doom-font (font-spec :family "Sarasa Fixed SC" :size 18))
 ;; (setq doom-font (font-spec :family "Operator Mono Light" :size 20))
 ;; Operator Mono
 ;;
@@ -52,5 +52,7 @@
 
 (fset 'marco-java-new
    [?b ?v ?e ?y ?A ?  escape escape ?p ?\; ?r ?A ?  ?= ?  ?n ?e ?w ?  escape escape ?p ?a ?\( ?\) ?\; escape escape ?\; ?w])
-
+(fset 'marco-log-jump
+   [?\" ?a ?y ?i ?w ?w ?w ?w ?w ?\" ?b ?y ?i ?w ?  ?  ?\C-r ?a return ?: ?\C-r ?b return])
 (map! :ne "SPC i n" 'marco-java-new)
+(map! :ne "SPC i l" 'marco-log-jump)

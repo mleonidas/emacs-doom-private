@@ -55,6 +55,7 @@
   :hook ((lsp-mode . lsp-enable-which-key-integration))
   ;; :custom (setq lsp-completion-enable-additional-text-edit nil)
  )
+(setq lsp-modeline-code-actions-enable nil)
 (use-package! lsp-java
   :config
   (add-hook 'java-mode-hook 'lsp)
