@@ -156,3 +156,7 @@ https://projectlombok.org/
 [[https://github.com/akicho8/string-inflection]]
 
 [[https://github.com/joodland/bm]]
+
+* question
+- how to install leetcode for my_cookies
+https://github.com/kaiwk/leetcode.el/issues/63

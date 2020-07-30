@@ -75,6 +75,7 @@
 (setq lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
 (setq lsp-java-java-path "~/soft/jdk/jdk-11.0.8/bin/java")
 
+
 (add-hook 'java-mode-hook #'lsp)
 
 ;; lsp-completion
@@ -288,7 +289,9 @@ d))))
 (bm-bookmark-add nil nil t)
 
 ;; skip localAreaNetwork(Lan) and loacalhost
-(setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|172.*\\|10.*\\|192.*\\|*.qq.com\\)")))
+;; (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|172.*\\|10.*\\|192.*\\|*.qq.com\\)")))
+(add-to-list 'exec-path "~/.local/bin/")
+
 
 (setq company-box-doc-enable nil)
 
@@ -334,8 +337,7 @@ d))))
 (setq neo-window-fixed-size nil)
 
 ;; (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|127.*\\|192.*\\|*.oak.net.cn\\|*.qq.com\\)")))
-                           ;; ("http" . "my-corp-proxy:8080")
-                           ;; ("https" . "my-port-proxy:8080")))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -343,7 +345,7 @@ d))))
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (leetcode rime java-snippets ranger vterm zygospore dap-mode))))
+    (exec-path-from-shell leetcode rime java-snippets ranger vterm zygospore dap-mode))))
 
 (use-package rime
   :config
@@ -355,3 +357,8 @@ d))))
       '(rime-predicate-evil-mode-p  ;;在 evil-mode 的非编辑状态下
         rime-predicate-current-uppercase-letter-p  ;;将要输入的为大写字母时
         rime-predicate-prog-in-code-p))  ;;在 prog-mode 和 conf-mode 中除了注释和引号内字符串之外的区域
+
+(setq leetcode-save-solutions t)
+(setq leetcode-directory "~/leetcode")
+(setq leetcode-prefer-language "java")
+(setq leetcode-prefer-sql "mysql")
