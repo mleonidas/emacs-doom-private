@@ -56,6 +56,7 @@
   ;; :custom (setq lsp-completion-enable-additional-text-edit nil)
  )
 (setq lsp-modeline-code-actions-enable nil)
+
 (use-package! lsp-java
   :config
   (add-hook 'java-mode-hook 'lsp)
@@ -72,6 +73,8 @@
 (setq lsp-enable-file-watchers nil)
 
 (setq lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
+(setq lsp-java-java-path "~/soft/jdk/jdk-11.0.8/bin/java")
+
 (add-hook 'java-mode-hook #'lsp)
 
 ;; lsp-completion
@@ -97,13 +100,12 @@
   :config
   (dap-mode t)
   (set-company-backend! 'dap-ui-repl-mode 'company-dap-ui-repl)
-  (dap-ui-mode t))
+  (dap-ui-mode nil))
 (setq dap-output-window-max-height 20)
 
 (map! :ne "f" 'evil-avy-goto-word-1)
 (map! :ne "SPC j" 'evil-avy-goto-word-1)
 (map! :ne "SPC z" 'counsel-fzf)
-(map! :ne "SPC v" 'vterm)
 (map! :ne "SPC l" 'evil-window-right)
 (map! :ne "SPC r" 'evil-window-left)
 (map! :ne "SPC j" 'evil-window-down)
@@ -126,7 +128,7 @@
 (map! :ne "; s" 'lsp-workspace-restart)
 (map! :ne "M f" 'lsp-find-definition)
 
-(map! :ne ", f" 'lsp-format-buffer)
+(map! :ne ", f" 'lsp-format-region)
 (map! :ne ", n" 'dap-next)
 (map! :ne ", b" 'dap-breakpoint-toggle)
 (map! :ne ", c" 'dap-continue)
@@ -135,6 +137,9 @@
 (map! :ne ", d" 'dap-debug)
 (map! :ne ", u" 'dap-ui-repl)
 (map! :ne ", t" 'dap-breakpoint-condition)
+
+(map! :ne "SPC v v" 'vterm)
+(map! :ne "SPC v c" 'counsel-rg)
 ;;
 ;; (global-set-key (kbd "<f7>") 'symbol-overlay-mode)
 ;;  ("C-<backspace>" . vterm-send-C-h)
@@ -143,7 +148,8 @@
 
 ;; (add-hook 'evil-insert-state-entry-hook
 ;;     (lambda () (interactive) (define-key evil-insert-state-map (kbd "M-[") 'c-hungry-backspace)))
-;; (general-def 'insert "C-h" 'c-hungry-backspace)
+(general-def 'insert "C-h" 'c-hungry-backspace)
+
 (use-package vterm
     :ensure t)
 (general-def 'insert vterm-mode-map "C-h" 'vterm-send-C-h)
@@ -165,7 +171,7 @@
 ;; :load-path  "~/soft/emacs-libvterm/")
 ;; (define-key vterm-mode-map (kbd "M-[")
 ;;     (lambda () (interactive) (vterm-send-key (kbd "C-h"))))
-;; (define-key evil-insert-state-map (kbd "C-h") 'c-hungry-backspace)
+(define-key evil-insert-state-map (kbd "C-h") 'c-hungry-backspace)
 
 ;; region forward
 (defalias 'forward-evil-word 'forward-evil-symbol)
@@ -179,9 +185,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(dap-ui-breakpoint-verified-fringe ((t (:background "#8000ff" :foreground "#ffffff"))))
+ '(dap-ui-pending-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
+ '(dap-ui-verified-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
  '(linum ((t (:inherit (shadow default) :foreground "DimGray" :background "dark"))))
  '(linum-highlight-face ((t (:background "#282828" :foreground "#EEEE00"))))
+ '(lsp-face-highlight-read ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2"))))
+ '(lsp-face-highlight-write ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2"))))
  '(lsp-face-semhl-field ((t (:foreground "#6272a4"))))
+ '(lsp-face-semhl-field-static ((t (:foreground "#f1fa8c"))))
  '(lsp-face-semhl-variable ((t (:foreground "#6272a4"))))
  '(lsp-face-semhl-variable-local ((t (:foreground "#6272a4"))))
  '(powerline-active0 ((t (:foreground "#f8f8f2"))))
@@ -329,7 +341,17 @@ d))))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (ranger vterm zygospore dap-mode))))
+ '(package-selected-packages
+   (quote
+    (leetcode rime java-snippets ranger vterm zygospore dap-mode))))
 
-
-
+(use-package rime
+  :config
+  (setq rime-show-candidate 'posframe)
+  :custom
+  (default-input-method "rime"))
+(global-set-key (kbd "C-;") 'toggle-input-method)
+(setq rime-disable-predicates
+      '(rime-predicate-evil-mode-p  ;;在 evil-mode 的非编辑状态下
+        rime-predicate-current-uppercase-letter-p  ;;将要输入的为大写字母时
+        rime-predicate-prog-in-code-p))  ;;在 prog-mode 和 conf-mode 中除了注释和引号内字符串之外的区域
