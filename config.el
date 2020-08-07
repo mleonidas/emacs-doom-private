@@ -6,6 +6,13 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
+;; (setq blink-cursor-interval 0.1)
+;; (setq blink-cursor-delay 0.1)
+;; (setq blink-cursor-blinks 0)
+;; (setq next-line-add-newlines nil)
+
+;; (display-time-mode 1)
+;; (blink-cursor-mode)
 
 (set-default 'truncate-lines nil)
 (setq truncate-lines t)
@@ -280,6 +287,7 @@ d))))
     (indent-region start end)))
 (setq gc-cons-threshold (* 2 1000 1000))
 
+(setq line-number-mode t)
 (setq display-line-numbers-type 'relative)
 
 (use-package! bm)
@@ -290,8 +298,8 @@ d))))
 
 ;; skip localAreaNetwork(Lan) and loacalhost
 ;; (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|172.*\\|10.*\\|192.*\\|*.qq.com\\)")))
-(add-to-list 'exec-path "~/.local/bin/")
 
+(add-to-list 'exec-path "~/.local/bin/")
 
 (setq company-box-doc-enable nil)
 
@@ -343,9 +351,44 @@ d))))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#00212B" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
+ '(custom-safe-themes
+   (quote
+    ("bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "5d09b4ad5649fea40249dd937eaaa8f8a229db1cec9a1a0ef0de3ccf63523014" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "3577ee091e1d318c49889574a31175970472f6f182a9789f1a3e9e4513641d86" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" default)))
+ '(fci-rule-color "#405A61")
+ '(jdee-db-active-breakpoint-face-colors (cons "#073642" "#268bd2"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#073642" "#859900"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#073642" "#56697A"))
+ '(objed-cursor-color "#dc322f")
  '(package-selected-packages
    (quote
-    (exec-path-from-shell leetcode rime java-snippets ranger vterm zygospore dap-mode))))
+    (yaml-mode exec-path-from-shell leetcode rime java-snippets ranger vterm zygospore dap-mode)))
+ '(pdf-view-midnight-colors (cons "#839496" "#002b36"))
+ '(rustic-ansi-faces
+   ["#002b36" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
+ '(vc-annotate-background "#002b36")
+ '(vc-annotate-color-map
+   (list
+    (cons 20 "#859900")
+    (cons 40 "#959300")
+    (cons 60 "#a58e00")
+    (cons 80 "#b58900")
+    (cons 100 "#bc7407")
+    (cons 120 "#c35f0e")
+    (cons 140 "#cb4b16")
+    (cons 160 "#cd4439")
+    (cons 180 "#d03d5d")
+    (cons 200 "#d33682")
+    (cons 220 "#d63466")
+    (cons 240 "#d9334a")
+    (cons 260 "#dc322f")
+    (cons 280 "#ba3f41")
+    (cons 300 "#994d54")
+    (cons 320 "#775b67")
+    (cons 340 "#405A61")
+    (cons 360 "#405A61")))
+ '(vc-annotate-very-old-color nil))
 
 (use-package rime
   :config
