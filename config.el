@@ -13,9 +13,10 @@
 
 ;; (display-time-mode 1)
 ;; (blink-cursor-mode)
-
 (set-default 'truncate-lines nil)
 (setq truncate-lines t)
+neo-window-width
+(setq neo-window-width 70)
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
 (setq undo-tree-auto-save-history t
       undo-tree-history-directory-alist `(("." .,
@@ -86,7 +87,7 @@
 (add-hook 'java-mode-hook #'lsp)
 
 ;; lsp-completion
-;; (setq lsp-java-content-provider-preferred "fernflower")
+;; (setq lsp-java-content-provider-preferred "cfr")
 (setq lsp-java-completion-guess-method-arguments t)
 (setq lsp-java-format-on-type-enabled t)
 (setq lsp-java-autobuild-enabled t)
@@ -111,6 +112,9 @@
   (dap-ui-mode nil))
 (setq dap-output-window-max-height 20)
 
+;; (use-package! lsp-kotlin)
+;; (add-hook 'kotlin-mode-hook #'lsp-kotlin-enable)
+
 (map! :ne "f" 'evil-avy-goto-word-1)
 (map! :ne "SPC j" 'evil-avy-goto-word-1)
 (map! :ne "SPC z" 'counsel-fzf)
@@ -118,6 +122,7 @@
 (map! :ne "SPC r" 'evil-window-left)
 (map! :ne "SPC j" 'evil-window-down)
 (map! :ne "SPC k" 'evil-window-up)
+(map! :ne "SPC b g" 'bongo)
 (map! :ne ";-1" 'neotree-find)
 (map! :ne "M-j" 'drag-stuff-down)
 (map! :ne "M-k" 'drag-stuff-up)
@@ -196,17 +201,9 @@
  '(dap-ui-breakpoint-verified-fringe ((t (:background "#8000ff" :foreground "#ffffff"))))
  '(dap-ui-pending-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
  '(dap-ui-verified-breakpoint-face ((t (:background "#0000FF" :foreground "#00FF00"))))
- '(linum ((t (:inherit (shadow default) :foreground "DimGray" :background "dark"))))
- '(linum-highlight-face ((t (:background "#282828" :foreground "#EEEE00"))))
  '(lsp-face-highlight-read ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2"))))
  '(lsp-face-highlight-write ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2"))))
- '(lsp-face-semhl-field ((t (:foreground "#6272a4"))))
- '(lsp-face-semhl-field-static ((t (:foreground "#f1fa8c"))))
- '(lsp-face-semhl-variable ((t (:foreground "#6272a4"))))
- '(lsp-face-semhl-variable-local ((t (:foreground "#6272a4"))))
- '(powerline-active0 ((t (:foreground "#f8f8f2"))))
- '(powerline-active1 ((t (:foreground "#FFDEAD"))))
- '(show-paren-match ((t (:background "#6272a4" :foreground "#00000")))))
+ '(lsp-face-semhl-field-static ((t (:foreground "#f1fa8c")))))
 
 (setq doom-modeline-modal-icon nil)
 (setq evil-emacs-state-tag "EMACS")
@@ -351,44 +348,9 @@ d))))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#00212B" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
- '(custom-safe-themes
-   (quote
-    ("bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "5d09b4ad5649fea40249dd937eaaa8f8a229db1cec9a1a0ef0de3ccf63523014" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "3577ee091e1d318c49889574a31175970472f6f182a9789f1a3e9e4513641d86" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" default)))
- '(fci-rule-color "#405A61")
- '(jdee-db-active-breakpoint-face-colors (cons "#073642" "#268bd2"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#073642" "#859900"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#073642" "#56697A"))
- '(objed-cursor-color "#dc322f")
  '(package-selected-packages
    (quote
-    (yaml-mode exec-path-from-shell leetcode rime java-snippets ranger vterm zygospore dap-mode)))
- '(pdf-view-midnight-colors (cons "#839496" "#002b36"))
- '(rustic-ansi-faces
-   ["#002b36" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
- '(vc-annotate-background "#002b36")
- '(vc-annotate-color-map
-   (list
-    (cons 20 "#859900")
-    (cons 40 "#959300")
-    (cons 60 "#a58e00")
-    (cons 80 "#b58900")
-    (cons 100 "#bc7407")
-    (cons 120 "#c35f0e")
-    (cons 140 "#cb4b16")
-    (cons 160 "#cd4439")
-    (cons 180 "#d03d5d")
-    (cons 200 "#d33682")
-    (cons 220 "#d63466")
-    (cons 240 "#d9334a")
-    (cons 260 "#dc322f")
-    (cons 280 "#ba3f41")
-    (cons 300 "#994d54")
-    (cons 320 "#775b67")
-    (cons 340 "#405A61")
-    (cons 360 "#405A61")))
- '(vc-annotate-very-old-color nil))
+    (bongo kotlin-mode zygospore yaml-mode vterm rime ranger leetcode java-snippets exec-path-from-shell ejc-sql dap-mode))))
 
 (use-package rime
   :config
@@ -405,3 +367,25 @@ d))))
 (setq leetcode-directory "~/leetcode")
 (setq leetcode-prefer-language "java")
 (setq leetcode-prefer-sql "mysql")
+
+(use-package bongo
+  :commands bongo-playlist
+  :general
+  (:states 'normal
+	   :keymaps 'bongo-playlist-mode-map
+	   "<return>" 'bongo-dwim
+	   "i" 'bongo-insert-file
+	   "p" 'bongo-play-previous
+	   "n" 'bongo-play-next
+	   "w" 'bongo-pause/resume
+	   "d" 'bongo-dired-line
+	   "e" 'bongo-append-enqueue
+	   "s" 'bongo-seek
+	   "r" 'bongo-rename-line
+	   "v" 'volume)
+  :custom
+  (bongo-enabled-backends '(mplayer))
+  (bongo-default-directory "~/Music/CloudMusic/")
+  (bongo-insert-album-covers t)
+  (bongo-album-cover-size 100)
+  (bongo-mode-line-indicator-mode nil))

@@ -55,6 +55,7 @@
 
 (add-to-list 'load-path "~/.doom.d/myconfig")
 (add-to-list 'load-path "~/.doom.d/modules/private/ou")
+;; (package! lsp-kotlin)
 ;; (add-to-list 'load-path "~/.emacs.d/myconfig")
 ;; (package! evil-fcitx
 ;;  :recipe (:files ("~/.doom.d/myconfig/evil-fcitx.el")))
