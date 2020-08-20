@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Stringuitls
+# key: isu
+# --
+if (!StringUtils.isEmpty(${1:value})) {
+    $0
+}
