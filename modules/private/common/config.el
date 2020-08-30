@@ -20,8 +20,8 @@
  '(lsp-face-highlight-read ((t (:background "#373859" :foreground "#f8f8f2" :distant-background "#f8f8f2" )))))
 ;;
 ;;
-(setq doom-font (font-spec :family "Sarasa Fixed SC" :size 21))
-;; (setq doom-font (font-spec :family "Operator Mono Light" :size 20))
+;; (setq doom-font (font-spec :family "Sarasa Fixed SC" :size 18))
+(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 20))
 ;; Operator Mono
 ;;
 ;; (setq org-agenda-files (list "1.org" "2.org"))

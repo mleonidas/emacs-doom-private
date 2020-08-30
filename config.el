@@ -73,6 +73,7 @@
                           , (concat "-javaagent:" lombok-jar-path)
                           , (concat "-Xbootclasspath/a:" lombok-jar-path)
                             )))
+ (setq lsp-completion-provider :capf)
 ;; (setq company-require-match t)
 ;; to enable the lenses
 ;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
@@ -109,7 +110,9 @@
   :config
   (dap-mode t)
   (set-company-backend! 'dap-ui-repl-mode 'company-dap-ui-repl)
-  (dap-ui-mode nil))
+  ;; (dap-ui-breakpoints nil)
+  )
+(setq dap-auto-configure-features '(controls))
 (setq dap-output-window-max-height 20)
 
 ;; (use-package! lsp-kotlin)
@@ -141,7 +144,8 @@
 (map! :ne "; s" 'lsp-workspace-restart)
 (map! :ne "M f" 'lsp-find-definition)
 
-(map! :ne ", f" 'lsp-format-region)
+(map! :ve ", f r" 'lsp-format-region)
+(map! :ne ", f b" 'lsp-format-buffer)
 (map! :ne ", n" 'dap-next)
 (map! :ne ", b" 'dap-breakpoint-toggle)
 (map! :ne ", c" 'dap-continue)
@@ -424,3 +428,6 @@ d))))
   (bongo-insert-album-covers t)
   (bongo-album-cover-size 100)
   (bongo-mode-line-indicator-mode nil))
+
+;; set emacs ranger
+(setq ranger-show-hidden t)
