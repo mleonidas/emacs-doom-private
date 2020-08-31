@@ -1,0 +1,7 @@
+# TOML format, uncomment line to enable.
+# (optional) command to run, default to nil.
+command = "credit-fund"
+# (optional) verbose name, default to filename.
+verbose = "ssh-fund"
+# (optional) sleep before command, default to 0.
+sleep = 0

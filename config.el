@@ -364,7 +364,7 @@ d))))
  '(objed-cursor-color "#ff665c")
  '(package-selected-packages
    (quote
-    (typit bongo kotlin-mode zygospore yaml-mode vterm rime ranger leetcode java-snippets exec-path-from-shell ejc-sql dap-mode)))
+    (toml typit bongo kotlin-mode zygospore yaml-mode vterm rime ranger leetcode java-snippets exec-path-from-shell ejc-sql dap-mode)))
  '(pdf-view-midnight-colors (cons "#bbc2cf" "#242730"))
  '(rustic-ansi-faces
    ["#242730" "#ff665c" "#7bc275" "#FCCE7B" "#51afef" "#C57BDB" "#5cEfFF" "#bbc2cf"])
@@ -431,3 +431,6 @@ d))))
 
 ;; set emacs ranger
 (setq ranger-show-hidden t)
+
+(use-package! vtm)
+(setq vtm-prefix-string "*")
