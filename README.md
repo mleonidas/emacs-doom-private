@@ -429,6 +429,13 @@ Sarasa-Gothic
 </table>
 
 
+## vtm quick ssh-buffer
+
+<https://github.com/laishulu/emacs-vterm-manager>
+
+    alias %some-command% "ssh %your_ssh_config% -t 'cd %your_wanted_path%; bash'"
+
+
 # DEPENDENCIES
 
 <https://github.com/junegunn/fzf>
@@ -443,9 +450,21 @@ Sarasa-Gothic
 
 <https://projectlombok.org/>
 
+-   FONT
+
 <https://github.com/be5invis/Sarasa-Gothic>
+<https://github.com/laishulu/Sarasa-Mono-SC-Nerd>
 
 <https://github.com/akicho8/string-inflection>
 
 <https://github.com/joodland/bm>
+
+<https://github.com/laishulu/emacs-vterm-manager>
+
+
+# question
+
+-   how to install leetcode for my\_cookies
+
+<https://github.com/kaiwk/leetcode.el/issues/63>
 
