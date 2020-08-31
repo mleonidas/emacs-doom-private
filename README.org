@@ -87,7 +87,10 @@ COMMENT ON COLUMN TABLE_ORG.PERIOD IS '期间';
 </SELECT>
 #+END_SRC
 
-** evil-fcitx
+** emacs-rime
+https://github.com/DogLooksGood/emacs-rime
+** emacs-ranger
+https://github.com/ralesi/ranger.el
 ** insert-translated-name
  | KEY | FUNCTION                                  |
  | ; t | insert-translated-name-replace-with-camel |
@@ -122,6 +125,7 @@ M-x number-region
 ** custom-set-faces
 ** font
 Sarasa-Gothic
+Sarasa-Mono-SC-Nerd
 ** some shortcuts
  | KEY   | FUNCTION             |
  | f     | evil-avy-goto-word-1 |
@@ -140,6 +144,7 @@ Sarasa-Gothic
 ** vtm quick ssh-buffer
 https://github.com/laishulu/emacs-vterm-manager
 
+config.fish
 #+BEGIN_SRC bash
 alias %some-command% "ssh %your_ssh_config% -t 'cd %your_wanted_path%; bash'"
 #+END_SRC
@@ -158,8 +163,8 @@ alias %some-command% "ssh %your_ssh_config% -t 'cd %your_wanted_path%; bash'"
 
 https://projectlombok.org/
 
-- FONT
 [[https://github.com/be5invis/Sarasa-Gothic]]
+
 https://github.com/laishulu/Sarasa-Mono-SC-Nerd
 
 [[https://github.com/akicho8/string-inflection]]

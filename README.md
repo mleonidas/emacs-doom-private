@@ -189,7 +189,14 @@ Config your db connection in the ../myconfig/db.el.
     </SELECT>
 
 
-## evil-fcitx
+## emacs-rime
+
+<https://github.com/DogLooksGood/emacs-rime>
+
+
+## emacs-ranger
+
+<https://github.com/ralesi/ranger.el>
 
 
 ## insert-translated-name
@@ -330,6 +337,7 @@ emacsLisp => EMACS\_LISP => EmacsLisp => emacsLisp
 ## font
 
 Sarasa-Gothic
+Sarasa-Mono-SC-Nerd
 
 
 ## some shortcuts
@@ -433,6 +441,8 @@ Sarasa-Gothic
 
 <https://github.com/laishulu/emacs-vterm-manager>
 
+config.fish
+
     alias %some-command% "ssh %your_ssh_config% -t 'cd %your_wanted_path%; bash'"
 
 
@@ -450,9 +460,8 @@ Sarasa-Gothic
 
 <https://projectlombok.org/>
 
--   FONT
-
 <https://github.com/be5invis/Sarasa-Gothic>
+
 <https://github.com/laishulu/Sarasa-Mono-SC-Nerd>
 
 <https://github.com/akicho8/string-inflection>
