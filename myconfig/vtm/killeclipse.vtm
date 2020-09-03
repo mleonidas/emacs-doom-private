@@ -1,0 +1,7 @@
+# TOML format, uncomment line to enable.
+# (optional) command to run, default to nil.
+command = "ps -ef | grep eclipse | awk '{print $2}' | xargs kill -9"
+# (optional) verbose name, default to filename.
+# verbose = ""
+# (optional) sleep before command, default to 0.
+# sleep = 0

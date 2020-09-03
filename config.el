@@ -18,6 +18,12 @@
 (setq neo-window-width 70)
 
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
+;; (setq doom-modeline-height 15)
+(setq doom-modeline-height 20)
+(setq doom-modeline-bar-width 2)
+(setq doom-modeline-icon nil)
+(setq doom-modeline-major-mode-icon nil)
+
 (setq undo-tree-auto-save-history t
       undo-tree-history-directory-alist `(("." .,
                                           (expand-file-name "~/.emacs.d/undo-tree-hist/"))))
@@ -27,6 +33,7 @@
       user-mail-address "--")
 
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 
@@ -73,6 +80,7 @@
                           , (concat "-javaagent:" lombok-jar-path)
                           , (concat "-Xbootclasspath/a:" lombok-jar-path)
                             )))
+
  (setq lsp-completion-provider :capf)
 ;; (setq company-require-match t)
 ;; to enable the lenses
