@@ -230,7 +230,12 @@ hello -> 你好
 
 ## plantuml uml
 
+You can use Customizer plant themem.
+
     +BEGIN_SRC plantuml :file ime.svg
+    !define DARKBLUE
+    !include myconfig/style-class.puml
+    
     a -> b
     #+END_SRC
 
