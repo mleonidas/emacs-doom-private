@@ -99,8 +99,12 @@ https://github.com/ralesi/ranger.el
 
  你好 -> hello
 ** plantuml uml
+You can use Customizer plant themem.
 #+BEGIN_SRC
 +BEGIN_SRC plantuml :file ime.svg
+!define DARKBLUE
+!include myconfig/style-class.puml
+
 a -> b
 ,#+END_SRC
 #+END_SRC

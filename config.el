@@ -363,16 +363,14 @@ d))))
  '(ansi-color-names-vector
    ["#242730" "#ff665c" "#7bc275" "#FCCE7B" "#51afef" "#C57BDB" "#5cEfFF" "#bbc2cf"])
  '(custom-safe-themes
-   (quote
-    ("bf387180109d222aee6bb089db48ed38403a1e330c9ec69fe1f52460a8936b66" default)))
+   '("bf387180109d222aee6bb089db48ed38403a1e330c9ec69fe1f52460a8936b66" default))
  '(fci-rule-color "#62686E")
  '(jdee-db-active-breakpoint-face-colors (cons "#1c1f24" "#51afef"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1c1f24" "#7bc275"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1c1f24" "#484854"))
  '(objed-cursor-color "#ff665c")
  '(package-selected-packages
-   (quote
-    (toml typit bongo kotlin-mode zygospore yaml-mode vterm rime ranger leetcode java-snippets exec-path-from-shell ejc-sql dap-mode)))
+   '(afternoon-theme toml typit bongo kotlin-mode zygospore yaml-mode vterm rime ranger leetcode java-snippets exec-path-from-shell ejc-sql dap-mode))
  '(pdf-view-midnight-colors (cons "#bbc2cf" "#242730"))
  '(rustic-ansi-faces
    ["#242730" "#ff665c" "#7bc275" "#FCCE7B" "#51afef" "#C57BDB" "#5cEfFF" "#bbc2cf"])
@@ -401,7 +399,7 @@ d))))
 
 (use-package rime
   :config
-  (setq rime-show-candidate 'posframe)
+  (setq rime-show-candidate 'minibuffer)
   :custom
   (default-input-method "rime"))
 (global-set-key (kbd "C-;") 'toggle-input-method)
