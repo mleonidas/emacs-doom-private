@@ -120,6 +120,7 @@
   (set-company-backend! 'dap-ui-repl-mode 'company-dap-ui-repl)
   ;; (dap-ui-breakpoints nil)
   )
+(setq-default indent-tabs-mode nil)
 (setq dap-auto-configure-features '(controls))
 (setq dap-output-window-max-height 20)
 
