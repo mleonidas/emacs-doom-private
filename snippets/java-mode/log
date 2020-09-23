@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: log
+# key: log
+# --
+log.info("\n==== [log]: {}", JSONObject.toJSONString( $0, SerializerFeature.PrettyFormat));
+`(prog1 nil (lsp-java-organize-imports))`

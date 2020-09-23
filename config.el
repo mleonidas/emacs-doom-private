@@ -163,6 +163,8 @@
 (map! :ne ", d" 'dap-debug)
 (map! :ne ", u" 'dap-ui-repl)
 (map! :ne ", t" 'dap-breakpoint-condition)
+(map! :ne "SPC v s" 'vterm-send-start)
+(map! :ne "SPC v p" 'vterm-send-stop)
 
 (map! :ne "SPC v v" 'vterm)
 (map! :ne "SPC v c" 'counsel-rg)
@@ -279,6 +281,10 @@ d))))
     (org . t)
     (plantuml . t)))
 (setq org-confirm-babel-evaluate nil)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t)))
 
 ;;number-region
 (defun number-region (start end)
