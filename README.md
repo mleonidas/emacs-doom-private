@@ -43,6 +43,54 @@ At last run below, this will take few minutes. And it depends on the quality of 
     ~/.emacs.doom/bin/doom install
 
 
+# QUESTION
+
+-   how to install leetcode for my\_cookies
+
+<https://github.com/kaiwk/leetcode.el/issues/63>
+
+-   how to reducing mvn compilation time
+
+<https://github.com/ashkrit/corejava/tree/master/compilerplugin>
+
+-   how to use jerebel standalone for jvm
+    -   download jrebel standAlong
+        <https://www.jrebel.com/products/jrebel/download>
+    -   crack project
+        git clone <https://gitee.com/gsls200808/JrebelLicenseServerforJava.git>
+        -   mvn package
+        -   java -jar JrebelBrainsLicenseServerforJava-1.0-SNAPSHOT-jar-with-dependencies.jar -p 8081
+        -   /etc/hosts
+            127.0.0.1   myjrebel.cn
+        -   uuid -> $> uuidgen
+            i.e. 8A41D967-8075-4570-9B2A-020858D03E34
+        -   URL <http://myjrebel.cn:8081/${uuid>}
+            e.g. <http://myjrebel.cn:8081/8A41D967-8075-4570-9B2A-020858D03E34>
+        -   theActivation  $jrebel/activate-gui.sh
+        -   setTheOffline  $jrebel/go-offline.sh
+    -   project setting
+        -   target/class/rebel.xml
+            
+                <?xml version="1.0" encoding="UTF-8"?>
+                <application generated-by="maven" build-tool-version="3.6.1" plugin-version="1.1.10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://update.zeroturnaround.com/jrebel/rebel-2_2.xsd">
+                <classpath>
+                    <dir name="projectpath/target/classes"></dir>
+                </classpath>
+                </application>
+        -   mvn or jvm launch parameters
+            
+                #!/bin/bash
+                ps -ef | grep spring-boot | awk '{print $2}' | xargs kill -9
+                mvn pre-clean install -f ../pom.xml -pl model-a,model-b -Dmaven.test.skip=true -Dmaven.compile.fork=true
+                export MAVEN_OPTS="-Xmx3000m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044 -Dreble.base=~/.jrebel -noverify -agentpath:~/soft/jrebel2020/jrebel-2020.2.3-nosetup/jrebel/lib/libjrebel64.so"
+                mvn -Dmaven.test.skip=true spring-boot:run -Dmaven.compile.fork=true -Djar.forceCreation
+-   how to update doom project or emacs plugins
+    -   for force update
+        rm -rf .emacs.d/.local/straight
+    -   for update plugins
+        .emacs.d/bin/doom upgrade
+
+
 # PLUGINS & FEATURES
 
 
@@ -238,6 +286,11 @@ You can use Customizer plant themem.
     
     a -> b
     #+END_SRC
+
+
+## dot uml
+
+![img](ab.png)
 
 
 ## number-region
@@ -474,52 +527,4 @@ config.fish
 <https://github.com/joodland/bm>
 
 <https://github.com/laishulu/emacs-vterm-manager>
-
-
-# question
-
--   how to install leetcode for my\_cookies
-
-<https://github.com/kaiwk/leetcode.el/issues/63>
-
--   how to reducing mvn compilation time
-
-<https://github.com/ashkrit/corejava/tree/master/compilerplugin>
-
--   how to use jerebel standalone for jvm
-    -   download jrebel standAlong
-        <https://www.jrebel.com/products/jrebel/download>
-    -   crack project
-        git clone <https://gitee.com/gsls200808/JrebelLicenseServerforJava.git>
-        -   mvn package
-        -   java -jar JrebelBrainsLicenseServerforJava-1.0-SNAPSHOT-jar-with-dependencies.jar -p 8081
-        -   /etc/hosts
-            127.0.0.1   myjrebel.cn
-        -   uuid -> $> uuidgen
-            i.e. 8A41D967-8075-4570-9B2A-020858D03E34
-        -   URL <http://myjrebel.cn:8081/${uuid>}
-            e.g. <http://myjrebel.cn:8081/8A41D967-8075-4570-9B2A-020858D03E34>
-        -   theActivation  $jrebel/activate-gui.sh
-        -   setTheOffline  $jrebel/go-offline.sh
-    -   project setting
-        -   target/class/rebel.xml
-            
-                <?xml version="1.0" encoding="UTF-8"?>
-                <application generated-by="maven" build-tool-version="3.6.1" plugin-version="1.1.10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://update.zeroturnaround.com/jrebel/rebel-2_2.xsd">
-                <classpath>
-                    <dir name="projectpath/target/classes"></dir>
-                </classpath>
-                </application>
-        -   mvn or jvm launch parameters
-            
-                #!/bin/bash
-                ps -ef | grep spring-boot | awk '{print $2}' | xargs kill -9
-                mvn pre-clean install -f ../pom.xml -pl model-a,model-b -Dmaven.test.skip=true -Dmaven.compile.fork=true
-                export MAVEN_OPTS="-Xmx3000m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044 -Dreble.base=~/.jrebel -noverify -agentpath:~/soft/jrebel2020/jrebel-2020.2.3-nosetup/jrebel/lib/libjrebel64.so"
-                mvn -Dmaven.test.skip=true spring-boot:run -Dmaven.compile.fork=true -Djar.forceCreation
--   how to update doom project or emacs plugins
-    -   for force update
-        rm -rf .emacs.d/.local/straight
-    -   for update plugins
-        .emacs.d/bin/doom upgrade
 
