@@ -153,14 +153,14 @@ a -> b
 ,#+END_SRC
 #+END_SRC
 ** dot uml
+#+BEGIN_SRC
 #+BEGIN_SRC dot :file ab.png
-
 digraph G {
     node [shape="box"];
     a -> b;
 }
+,#+END_SRC
 #+END_SRC
-
 ** number-region
 For insert the sequence.
 

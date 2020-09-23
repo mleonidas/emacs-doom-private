@@ -290,7 +290,12 @@ You can use Customizer plant themem.
 
 ## dot uml
 
-![img](ab.png)
+    #+BEGIN_SRC dot :file ab.png
+    digraph G {
+        node [shape="box"];
+        a -> b;
+    }
+    #+END_SRC
 
 
 ## number-region
