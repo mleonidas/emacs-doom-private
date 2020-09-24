@@ -5,4 +5,3 @@
 if (!StringUtils.isEmpty(${1:value})) {
     $0
 }
-`(prog1 nil (lsp-java-organize-imports))`
