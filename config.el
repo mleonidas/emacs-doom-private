@@ -152,6 +152,8 @@
 (map! :ne "; a" 'ranger)
 (map! :ne "; s" 'lsp-workspace-restart)
 (map! :ne "M f" 'lsp-find-definition)
+(map! :ne "s-;" 'comment-line)
+(map! :ne "s-i" 'lsp-goto-implementation)
 
 (map! :ve ", f r" 'lsp-format-region)
 (map! :ne ", f b" 'lsp-format-buffer)
@@ -166,6 +168,7 @@
 (map! :ne "SPC v s" 'vterm-send-start)
 (map! :ne "SPC v p" 'vterm-send-stop)
 
+(map! :ne "SPC v p" 'vterm-send-stop)
 (map! :ne "SPC v v" 'vterm)
 (map! :ne "SPC v c" 'counsel-rg)
 ;;
@@ -447,3 +450,12 @@ d))))
 
 (use-package! vtm)
 (setq vtm-prefix-string "*")
+
+(setq go-translate-base-url "https://translate.google.cn")
+(setq go-translate-local-language "zh-CN")
+(setq go-translate-inputs-function #'go-translate-inputs-current-or-prompt)
+(setq go-translate-buffer-follow-p t)
+(map! :ne "' t" 'go-translate)
+(setq count 100)
+(global-set-key (kbd "s-.") 'next-buffer)
+(global-set-key (kbd "s-,") 'previous-buffer)
