@@ -22,6 +22,7 @@
 ;;
 ;; (setq doom-font (font-spec :family "Sarasa Fixed SC" :size 18))
 (setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 18))
+;; (setq doom-font (font-spec :family "Rec Mono Casual" :size 16))
 ;; Operator Mono
 ;;
 ;; (setq org-agenda-files (list "1.org" "2.org"))

@@ -91,6 +91,9 @@
 
 (setq lsp-java-jdt-download-url "https://mirrors.tuna.tsinghua.edu.cn/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz")
 (setq lsp-java-java-path "~/soft/jdk/jdk-11.0.8/bin/java")
+(setq lsp-java-configuration-runtimes '[(:name "JavaSE-11"
+                                                 :path "~/soft/jdk/jdk-11.0.8/"
+                                                 :default t)])
 
 
 (add-hook 'java-mode-hook #'lsp)

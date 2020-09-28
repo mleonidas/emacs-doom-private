@@ -22,3 +22,16 @@
  :password "2019"
  :separator "</?\.*>")
 (provide 'db)
+
+(defun ejc-connect-ivy ()
+  (interactive)
+  (let* ((conn-list (mapcar 'car ejc-connections))
+         (conn-statistics (ejc-load-conn-statistics))
+         (conn-list-sorted (-sort (lambda (c1 c2)
+                                    (> (or (lax-plist-get conn-statistics c1) 0)
+                                       (or (lax-plist-get conn-statistics c2) 0)))
+                                  conn-list)))
+    (ivy-read "DataBase connection name: " conn-list-sorted
+              :keymap ivy-minibuffer-map
+              :preselect (car conn-list-sorted)
+              :action #'ejc-connect)))
